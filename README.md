@@ -1,4 +1,4 @@
-# Cheerups
+# Cheer you up
 
 General Assembly Software Engineering Immersive - Project 2
 
@@ -8,7 +8,7 @@ Deployment: [here](https://secret-wildwood-49670.herokuapp.com/)
 
 The world is a depressing place.
 
-Your task is to create an app that will allow people to create and share "cheerups" - happy little quips to brighten other people's' days. Cheerups will be small - limited to 139 characters. Members will be able to promote Cheerups that they like and maybe even boost the reputation of the Cheerupper.
+Your task is to create an app that will allow people to create and share "cheerups" through the `Cheer you up` web app - happy little quips to brighten other people's' days. Cheerups will be small - limited to 139 characters. Members will be able to promote Cheerups that they like and maybe even boost the reputation of the Cheerupper.
 
 ## Setup instructions
 ```
@@ -52,12 +52,20 @@ MVP Relational Database Diagram
 * [API] Allocate a song to their profile ('currently on repeat')
 * [API] Add a random joke of the day as an easter egg somewhere on the page 
 * Allow users to follow other users cheerups!!
+* Allow public and private cheerups
 
 ![Additional Features Relational Diagram](/static/images/readme/additional-features-db-diagram.png)
 
 
-UI Design:
+# UI Design:
 TBC
 
-Story Boards:
+Pages 
+* Home (main cheerups)
+* Login 
+* Sign Up
+* Profile page (both for logged in users and public)
+* Cheerup post page (might use a modal)
+
+# Story Boards:
 TBC
