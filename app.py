@@ -4,9 +4,10 @@ import os
 
 
 DB_URL = os.environ.get("DATABASE_URL", "dbname=project_2")
+SECRET_KEY = os.environ.get("SECRET_KEY", "password")
 
 app = Flask(__name__)
-
+app.config['SECRET_KEY'] = SECRET_KEY
 
 @app.route('/')
 def index():
