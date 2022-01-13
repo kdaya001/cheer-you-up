@@ -33,6 +33,13 @@ REFERENCES users(id);
 INSERT INTO users(first_name, second_name, password, primary_cheerup_id) VALUES
     ('Ice', 'Cream', '*', 1);
 
-INSERT INTO cheerups(user_id, cheerup, rating) VALUES (1, 'hello world', 3);
+INSERT INTO cheerups(user_id, cheerup, rating) VALUES (1, 'Sometimes the smallest step in the right direction ends up being the biggest step of your life. Tip toe if you must but take the step', 0);
+
+INSERT INTO cheerups(user_id, cheerup, rating) VALUES (1, 'When everythin gfeels like an uphill struggle, just think of the view from the top', 0);
+
+INSERT INTO cheerups(user_id, cheerup, rating) VALUES (1, 'Cheer up when the night comes, because morning always gives you another chance', 0);
+
+
+-- https://www.quoteambition.com/cheer-up-quotes/
 
 INSERT INTO avatar(user_id, url) VALUES (1, 'https://avatars.dicebear.com/api/male/john.svg?background=%230000ff');

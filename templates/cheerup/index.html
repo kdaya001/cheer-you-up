@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<img class="avatar" src={{cheerups[0][1]}}>
-<div>
-    {{cheerups[0][0]}}
-</div>
+<ol>
+    <img class="avatar" src={{cheerups[0][1]}}>
+    {% for cheerup in cheerups %}
+    <li>{{cheerup[0]}}</li>
+    {% endfor %}
+</ol>
 
 {% endblock content %}

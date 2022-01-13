@@ -8,7 +8,3 @@ cheerup_controller = Blueprint("cheerup_controller", __name__, template_folder="
 def cheerup_home():
     cheerups = get_all_cheer_ups()
     return render_template('index.html', cheerups=cheerups)
-
-@cheerup_controller.route('/test')
-def test():
-    return 'Hello World'
