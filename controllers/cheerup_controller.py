@@ -23,6 +23,8 @@ def create_cheerup():
     weather = None
     if city != None: 
         weather = get_weather(city)
+    if weather != None:
+        weather = weather['weather'][0]['icon']
     insert_cheerup(cheerup, user_id, weather)
     return redirect('/')
 
