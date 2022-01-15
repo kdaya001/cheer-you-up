@@ -1,4 +1,4 @@
-.avatar {
+.avatar, .curr-user-avatar {
     width: 20px;
     height: 20px;
 }
@@ -10,9 +10,7 @@
 
 ol {
     counter-reset: li;
-    list-style: none;
     padding: 0 30px;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 ol li {
@@ -22,16 +20,11 @@ ol li {
     margin: 0.5em 0;
     background: #dad2ca;
     color: #444;
-    text-decoration: none;
-    border-radius: 0.3em;
+    border-radius: 1em;
     transition: 0.3s ease-out;
 }
 
-ol li:hover {
-    background: #e9e4e0;
-}
-
-ol li:before {
+/* ol li:before {
     content: counter(li);
     counter-increment: li;
     position: absolute;
@@ -47,4 +40,40 @@ ol li:before {
     font-weight: bold;
     border-radius: 2em;
     transition: all 0.3s ease-out;
+} */
+
+.container {
+    padding: 40px 0;
+    background-color: #FFFFFF;
+    margin: 0 auto;
+    width: 450px;
+    border-radius: 1em;
+}
+
+@media only screen and (min-width: 900px) {
+    .container {
+        display: grid;
+        grid-template-columns: .5fr 8fr .5fr;
+        grid-template-rows: 3fr 1fr;
+        width: 80%;
+    }
+
+    ol {
+        grid-column: 2 / span 1;
+    }
+
+    ol li {
+        font-size: 1.2em;
+    }
+    
+    form {
+        grid-row: 2 / span 1;
+        grid-column: 2/ span 1;
+    }
+}
+
+.user-details {
+    display: flex;
+    align-items: right;
+    justify-content: right;
 }

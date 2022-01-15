@@ -15,10 +15,6 @@ app.config['SECRET_KEY'] = SECRET_KEY
 
 @app.route('/')
 def index():
-    # conn = psycopg2.connect(DB_URL)
-    # cur = conn.cursor()
-    # cur.execute('SELECT 1', [])  # Query to check that the DB connected
-    # conn.close()
     return redirect('home')
 
 

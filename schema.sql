@@ -3,6 +3,8 @@ CREATE TABLE users (
     first_name character varying(30) NOT NULL,
     second_name character varying(30) NOT NULL, 
     password TEXT NOT NULL,
+    email TEXT,
+    avatar_url Text,
     primary_cheerup_id INTEGER
 );
 
@@ -13,18 +15,7 @@ CREATE TABLE cheerups (
     rating INTEGER
 );
 
-CREATE TABLE avatar (
-    id SERIAL PRIMARY KEY,
-    user_id INTEGER,
-    url TEXT
-);
-
 ALTER TABLE cheerups
-ADD CONSTRAINT fk_user
-FOREIGN KEY(user_id)
-REFERENCES users(id);
-
-ALTER TABLE avatar
 ADD CONSTRAINT fk_user
 FOREIGN KEY(user_id)
 REFERENCES users(id);

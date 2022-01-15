@@ -20,3 +20,14 @@ def sql_write(query, params):
     conn.commit()
     cur.close()
     conn.close()
+
+
+def sql_write_with_return(query, params):
+    conn = psycopg2.connect(DB_URL)
+    cur = conn.cursor()
+    cur.execute(query, params)
+    conn.commit()
+    response = cur.fetchone()[0]
+    cur.close()
+    conn.close()
+    return response

@@ -1,11 +1,32 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<ol>
-    <img class="avatar" src={{cheerups[0][1]}}>
-    {% for cheerup in cheerups %}
-    <li>{{cheerup[0]}}</li>
-    {% endfor %}
-</ol>
+<div class="container">
+    <ol>
+        {% if avatar %}
+        <a href="/my-profile"><img class="curr-user-avatar" src={{avatar}}></a>
+        {% endif %}
+        {% for cheerup in cheerups %}
+        <li class="cheerup-container">
+            <div class="cheerup">
+                <img class="avatar" src={{cheerup[1]}}>{{cheerup[0]}}
+            </div>
+            <div class="user-details">
+                Current rating: {{cheerup['rating']}}
+                <br/>
+                Posted by: {{cheerup['first_name']}}
+            </div>
+        </li>
+        {% endfor %}
+    </ol>
+
+    <!-- If user is logged in -->
+    {% if user_id %}
+    <form action="\cheerup\create" method="post">
+        <input type="text" placeholder="Add a cheerup" name="new_cheerup" required>
+        <button class="submit" type="submit">Sumbit</button>
+    </form>
+    {% endif %}
+</div>
 
 {% endblock content %}
