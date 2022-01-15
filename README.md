@@ -40,7 +40,7 @@ TBC
     * Set their main cheerup for their profile (for when others view their profile)
 - [x] A session will be used to ensure the user stays logged in
 - [x] Only logged in users will be able to '+1' to rate cheerups, which will create a 'cheerup score' (anonymously). The home page will then be sorted based off this score. This will also be used to aggregate the cheerup score of each user
-- [x] (API) Set a random avatar for the user with an account
+- [x] [API] Set a random avatar for the user with an account
 - [ ] Update HTML and CSS to make the web app visually appealing
 
 MVP Relational Database Diagram

@@ -6,6 +6,7 @@ CREATE TABLE users (
     email TEXT,
     avatar_url Text,
     primary_cheerup_id INTEGER
+    score = INTEGER
 );
 
 CREATE TABLE cheerups (

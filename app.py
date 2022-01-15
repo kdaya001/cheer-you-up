@@ -15,6 +15,7 @@ from controllers.session_controller import session_controller
 app = Flask(__name__)
 app.config['SECRET_KEY'] = SECRET_KEY
 
+
 @app.route('/')
 def index():
     return redirect('home')

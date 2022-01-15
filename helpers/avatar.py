@@ -1,5 +1,4 @@
 from random import randint
-import database
 
 def generate_random_number():
     return randint(0,100000)
