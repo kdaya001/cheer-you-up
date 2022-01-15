@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% if cheerups %}
 <div class="container">
     <ol>
         {% if avatar %}
@@ -9,19 +10,20 @@
         {% for cheerup in cheerups %}
         <li class="cheerup-container">
             <div class="cheerup">
-                <img class="avatar" src={{cheerup[1]}}>{{cheerup[0]}}
+                {{cheerup[0]}}
             </div>
             <div class="user-details">
                 Current rating: {{cheerup['rating']}}
                 <br/>
-                Posted by: {{cheerup['first_name']}}
+                Posted by: <img class="avatar" src={{cheerup[1]}}>
                 {% if user_id %}
                     {% if user_id != cheerup['userid'] %}
-
-                    <br/>
-                    <form action="/upvote/{{cheerup['id']}}" method="POST">
-                        <button type="submit">Upvote +1</button>
-                    </form>
+                        {% if user_id not in cheerup['voters'] %}
+                        <br/>
+                        <form action="/upvote/{{cheerup['cheerupid']}}" method="POST">
+                            <button class="button" type="submit">Upvote +1</button>
+                        </form>
+                        {% endif %}
                     {% endif %}
                 {% endif %}
             </div>
@@ -29,10 +31,19 @@
         {% endfor %}
     </ol>
 
+{% elif user_id %}
+<h2>There currently aren't any cheerups! Create the first one to make someone's day!</h2>
+{% else %}
+<h2>There currently aren't any cheerups! Sign up or login to create the first one!</h2>
+<p>Make someones day!</p>
+{% endif %}
+
+
+
     {% if user_id %}
     <form action="\cheerup\create" method="post">
-        <input type="text" placeholder="Add a cheerup" name="new_cheerup" required>
-        <button class="submit" type="submit">Sumbit</button>
+        <input class="input" type="text" placeholder="Add a cheerup" name="new_cheerup" required>
+        <button class="button" type="submit">Sumbit</button>
     </form>
     {% endif %}
 </div>

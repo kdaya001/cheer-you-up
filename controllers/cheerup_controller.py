@@ -1,7 +1,7 @@
 import bcrypt
 from flask import Blueprint, request, redirect, render_template, session
 from database import sql_write
-from models.cheerup import get_all_cheer_ups, insert_cheerup, get_cheerup, remove_cheerup, upvote_cheerup
+from models.cheerup import get_all_cheer_ups, insert_cheerup, get_cheerup, remove_cheerup, upvote_cheerup, update_voters
 
 cheerup_controller = Blueprint("cheerup_controller", __name__, template_folder="../templates/cheerup")
 
@@ -44,4 +44,5 @@ def upvote(id):
         return redirect('/')
     elif request.method == "POST":
         upvote_cheerup(id)
+        update_voters(session.get('user_id'), id)
         return redirect('/')

@@ -1,7 +1,8 @@
+from re import L
 import database
 
 def get_all_cheer_ups():
-    results = database.sql_select('select cheerups.cheerup, users.avatar_url, users.first_name, cheerups.rating, cheerups.id as cheerupsid, users.id as userid FROM cheerups INNER JOIN users ON cheerups.user_id = users.id order by rating DESC', [])
+    results = database.sql_select('select cheerups.cheerup, users.avatar_url, users.first_name, cheerups.rating, cheerups.id as cheerupid, users.id as userid, cheerups.voters FROM cheerups INNER JOIN users ON cheerups.user_id = users.id order by rating DESC', [])
     return results
 
 def insert_cheerup(cheerup, user_id):
@@ -20,3 +21,6 @@ def upvote_cheerup(id):
     current_rating = database.sql_select('SELECT rating FROM cheerups WHERE id = %s', [id])
     new_rating = current_rating[0]['rating'] + 1
     database.sql_write('UPDATE cheerups SET rating = %s WHERE id = %s', [new_rating, id])
+
+def update_voters(user_id, cheerup_id):
+    database.sql_write('UPDATE cheerups SET voters = array_append(voters, %s) WHERE id = %s', [user_id, cheerup_id])
