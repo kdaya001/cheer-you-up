@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Add user details -->
+<ol>
+    {% for cheerup in cheerups %}
+    <li>
+        {{cheerup['cheerup']}}
+    </li>
+    {% endfor %}
+</ol>
+{% endblock %}

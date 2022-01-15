@@ -13,6 +13,7 @@ CREATE TABLE cheerups (
     user_id INTEGER,
     cheerup character varying(139) NOT NULL, 
     rating INTEGER
+    weather character varying(3)
 );
 
 ALTER TABLE cheerups

@@ -30,11 +30,23 @@ def create_user():
         return redirect('/signup')
 
 @user_controller.route('/my-profile')
-def user_profile():
+def my_profile():
     user_id = session.get('user_id')
+    avatar = session.get('avatar')
     if user_id:
         user_details = get_user(user_id)
         cheerups = get_user_cheerups(user_id)
-        return render_template('my-profile.html', user = user_details[0], cheerups = cheerups, user_id = user_id)
+        return render_template('my-profile.html', user = user_details[0], cheerups = cheerups, user_id = user_id, avatar=avatar)
     else:
         return redirect('/signup')
+
+@user_controller.route('/user-profile/<id>')
+def user_profile(id):
+    current_user = session.get('user_id')
+    if current_user:
+        if current_user == int(id):
+            return redirect('/my-profile')
+    
+    cheerups = get_user_cheerups(id)
+    print(cheerups)
+    return render_template('profile.html', cheerups = cheerups)

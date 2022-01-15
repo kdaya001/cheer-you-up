@@ -2,6 +2,7 @@ import bcrypt
 from flask import Blueprint, request, redirect, render_template, session
 from database import sql_write
 from models.cheerup import get_all_cheer_ups, insert_cheerup, get_cheerup, remove_cheerup, upvote_cheerup, update_voters
+from models.user import get_location, get_weather
 
 cheerup_controller = Blueprint("cheerup_controller", __name__, template_folder="../templates/cheerup")
 
@@ -16,7 +17,12 @@ def cheerup_home():
 def create_cheerup():
     cheerup = request.form.get('new_cheerup')
     user_id = session.get('user_id')
-    insert_cheerup(cheerup, user_id)
+    visitor_ip = request.headers.get('X-Forwarded-For', request.remote_addr)
+    city = get_location(visitor_ip)
+    weather = None
+    if city != None: 
+        weather = get_weather(city)
+    insert_cheerup(cheerup, user_id, weather)
     return redirect('/')
 
 
