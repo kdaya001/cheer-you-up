@@ -8,7 +8,7 @@ def insert_cheerup(cheerup, user_id, weather):
     if weather == None:
         database.sql_write('INSERT INTO cheerups (user_id, cheerup, rating, voters) VALUES (%s, %s, %s, %s)', [user_id, cheerup, 0, []])
     else:
-        database.sql_write('INSERT INTO cheerups (user_id, cheerup, rating, weather, voters) VALUES (%s, %s, %s, %s)', [user_id, cheerup, 0, weather, []])
+        database.sql_write('INSERT INTO cheerups (user_id, cheerup, rating, weather, voters) VALUES (%s, %s, %s, %s, %s)', [user_id, cheerup, 0, weather, []])
 
 def get_user_cheerups(user_id):
     results = database.sql_select('select cheerups.cheerup, users.avatar_url, users.first_name, cheerups.rating, cheerups.id as cheerupid, users.id as userid, cheerups.voters, cheerups.weather, users.score FROM cheerups INNER JOIN users ON cheerups.user_id = users.id WHERE users.id = %s ORDER BY rating DESC', [user_id])

@@ -16,4 +16,4 @@ def get_weather(city):
     response = requests.get(api_url)
     json = response.json()
     print(json)
-    return json
+    return json['weather'][0]['icon']
