@@ -11,7 +11,7 @@ CREATE TABLE users (
 CREATE TABLE cheerups (
     id SERIAL PRIMARY KEY,
     user_id INTEGER,
-    cheerup TEXT, 
+    cheerup character varying(139) NOT NULL, 
     rating INTEGER
 );
 

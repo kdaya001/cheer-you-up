@@ -15,12 +15,20 @@
                 Current rating: {{cheerup['rating']}}
                 <br/>
                 Posted by: {{cheerup['first_name']}}
+                {% if user_id %}
+                    {% if user_id != cheerup['userid'] %}
+
+                    <br/>
+                    <form action="/upvote/{{cheerup['id']}}" method="POST">
+                        <button type="submit">Upvote +1</button>
+                    </form>
+                    {% endif %}
+                {% endif %}
             </div>
         </li>
         {% endfor %}
     </ol>
 
-    <!-- If user is logged in -->
     {% if user_id %}
     <form action="\cheerup\create" method="post">
         <input type="text" placeholder="Add a cheerup" name="new_cheerup" required>

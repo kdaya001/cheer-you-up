@@ -36,10 +36,10 @@ TBC
 ## Minimum Viable Product:
 * Users will need to log in/authenticate with a username and password in order to be able to either:
     * Post a 'cheerup'
-    * View all existing cheerups that the user has posted
+    * View all existing cheerups that the logged in user has posted
     * Set their main cheerup for their profile (for when others view their profile)
 * A session will be used to ensure the user stays logged in
-* Useres (both logged in and anonymous) will be able to '+1' to rate cheerups, which will create a 'cheerup score' (anonymously). The home page can then be sorted based off this score. This will also be used to aggregate the cheerup score of each user
+* Only logged in users will be able to '+1' to rate cheerups, which will create a 'cheerup score' (anonymously). The home page can then be sorted based off this score. This will also be used to aggregate the cheerup score of each user
 * [API] Set a random avatar for the user with an account
 
 MVP Relational Database Diagram

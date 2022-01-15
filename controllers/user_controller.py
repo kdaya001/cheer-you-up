@@ -1,7 +1,7 @@
 from flask import Blueprint, request, redirect, render_template, session
 import bcrypt
 from models.user import insert_user, get_user
-from controllers.avatar_controller import generate_avatar
+from models.avatar import generate_avatar
 from models.cheerup import get_user_cheerups
 
 
@@ -35,6 +35,6 @@ def user_profile():
     if user_id:
         user_details = get_user(user_id)
         cheerups = get_user_cheerups(user_id)
-        return render_template('my-profile.html', user = user_details[0], cheerups = cheerups)
+        return render_template('my-profile.html', user = user_details[0], cheerups = cheerups, user_id = user_id)
     else:
-        return redirect('/')
+        return redirect('/signup')
