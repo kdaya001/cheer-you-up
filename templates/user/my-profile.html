@@ -15,7 +15,7 @@
     {% for cheerup in cheerups %}
     <li>
         {{cheerup['cheerup']}}
-    <form action="/delete/{{cheerup['id']}}" method="POST">
+    <form action="/delete/{{cheerup['cheerupid']}}" method="POST">
         <button type="submit" value="Submit">Delete</button>
     </form>
     </li>

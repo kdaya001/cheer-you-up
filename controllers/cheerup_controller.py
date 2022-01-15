@@ -29,12 +29,13 @@ def create_cheerup():
 @cheerup_controller.route('/delete/<id>', methods=["POST"])
 def delete_cheerup(id):
     cheerup_details = get_cheerup(id)
+    print(cheerup_details)
     if cheerup_details:
         cheerup_details = cheerup_details[0]
     
-    if cheerup_details['user_id'] == session.get('user_id'):
-        remove_cheerup(id)
-        return redirect('/my-profile')
+        if cheerup_details['user_id'] == session.get('user_id'):
+            remove_cheerup(id)
+            return redirect('/my-profile')
     else: 
         return redirect('/')
 
