@@ -6,16 +6,16 @@
     <ol>
         {% for cheerup in cheerups %}
         <li class="cheerup-container">
-            <div class="cheerup">
+            <div class="cheerup" >
                 {{cheerup[0]}}
             </div>
+            <span class="find-out-more">+</span>
             <div class="user-details">
-                Current rating: {{cheerup['rating']}}
-                <br/>
+                <p>Current rating: {{cheerup['rating']}}</p>
                 {% if cheerup['weather'] %}
                 <img class="weather-icon" src="http://openweathermap.org/img/wn/{{cheerup['weather']}}.png">
                 {% endif %}
-                Posted by: <a href="/user-profile/{{cheerup['userid']}}"><img class="avatar" src={{cheerup[1]}}></a>
+                <p>Posted by:</p> <a href="/user-profile/{{cheerup['userid']}}"><img class="avatar" src={{cheerup[1]}}></a>
                 {% if user_id %}
                     {% if user_id != cheerup['userid'] %}
                         {% if user_id not in cheerup['voters'] %}
@@ -48,4 +48,8 @@
     {% endif %}
 </div>
 
+{% block javascript %}
+
+{% endblock javascript %}
+<script src="/static/javascript/cheerup-list.js"></script>
 {% endblock content %}

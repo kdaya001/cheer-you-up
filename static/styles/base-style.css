@@ -78,9 +78,7 @@ ol li:before {
 }
 
 .user-details {
-    display: flex;
-    justify-content: right;
-    flex-direction: row-reverse;
+    display: none; 
 }
 
 .button,
