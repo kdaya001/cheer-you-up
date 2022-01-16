@@ -11,7 +11,7 @@
     {% if top_ten_cheerups %}
     <div class="main-content-container">
         <div class="popular-cheerups">
-            <h1 class="cheerup-heading">Most Recent Cheer Ups</h1>
+            <h1 class="cheerup-heading">Most Popular</h1>
             <ol>
                 {% for cheerup in top_ten_cheerups %}
                 <li class="cheerup-container">
@@ -54,14 +54,14 @@
         </div>
         <div class="recent-cheerups">
             <ol>
-                <h1 class="cheerup-heading">Ten Most Recent Cheerups</h1>
+                <h1 class="cheerup-heading">Most Recent</h1>
                 {% for cheerup in recent_ten_cheerups %}
                 <li class="cheerup-container">
                     <div class="poster-details">
                         <a href="/user-profile/{{cheerup['userid']}}">
                             <p class="first_name">
-                                {{cheerup['first_name']}}
                                 <img class="avatar" src="{{cheerup[1]}}" /> 
+                                {{cheerup['first_name']}}
                             </p>
                         </a>
                     </div>
@@ -121,6 +121,10 @@
         {% endif %}
     </div>
 </div>
+
+<form action="/" methods="POST">
+    
+</form>
 
 {% block javascript %}
 <script src="/static/javascript/cheerup-list.js"></script>

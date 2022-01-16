@@ -49,9 +49,9 @@ ol li:after {
 }
 
 @media only screen and (min-width: 900px) {
-    .container {
+    /* .container {
         display: flex;
-    }
+    } */
 
     ol {
         grid-column: 2 / span 1;
@@ -227,4 +227,8 @@ body {
 form {
     grid-row: 3 / span 1;
     grid-column: 1 / span 2;
+}
+
+.cheerup-heading {
+    font-family: 'Rubik', sans-serif;
 }

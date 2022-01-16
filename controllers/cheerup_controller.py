@@ -36,7 +36,7 @@ def delete_cheerup(id):
     
         if cheerup_details['user_id'] == session.get('user_id'):
             remove_cheerup(id)
-            return redirect('/my-profile')
+            return redirect(request.referrer)
     else: 
         return redirect('/')
 
@@ -53,4 +53,4 @@ def upvote(id):
         upvote_cheerup(id)
         update_voters(session.get('user_id'), id)
         update_score(get_cheerup(id)[0]['user_id'])
-        return redirect('/')
+        return redirect(request.referrer)

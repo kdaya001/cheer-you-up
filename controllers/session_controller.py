@@ -30,7 +30,6 @@ def create_session():
     else:
         return redirect('/login')
 
-#logout '/sessions/destroy'
 @session_controller.route('/sessions/destroy')
 def destroy_session():
     session.pop('user_id')
