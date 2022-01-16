@@ -4,11 +4,11 @@
 <link href="/static/styles/login.css" rel="stylesheet">
 {% endblock additionalStyles %}
 
-{% block content %}
+{% block main_content %}
 <form class="form_login" action="sessions/create" method="post">
     <h1>Login</h1>
     <input type="text" placeholder="Enter Username" name="username" required>
     <input type="password" placeholder="Enter Password" name="password" required>
     <button class="submit" type="submit">Login</button>
 </form>
-{% endblock content %}
+{% endblock main_content %}

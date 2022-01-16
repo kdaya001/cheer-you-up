@@ -22,6 +22,10 @@ ADD CONSTRAINT fk_user
 FOREIGN KEY(user_id)
 REFERENCES users(id);
 
+ALTER TABLE cheerups 
+ADD COLUMN timestamp timestamp default current_timestamp;
+
+
 
 INSERT INTO users(first_name, second_name, password, primary_cheerup_id) VALUES
     ('Ice', 'Cream', '*', 1);

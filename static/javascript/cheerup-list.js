@@ -1,12 +1,13 @@
 const cheerups = document.getElementsByClassName('cheerup');
 
 function moreDetails(event) {
-    const userDetails = event.target.parentElement.children[2];
+    const userDetails = event.target.parentElement.children[3];
+    console.log(userDetails)
     let currentState = userDetails.style.display
-    if (currentState == "block") {
+    if (currentState == "flex") {
         userDetails.style.display = "none"
     } else {
-        userDetails.style.display = "block"
+        userDetails.style.display = "flex"
     }
 }
 

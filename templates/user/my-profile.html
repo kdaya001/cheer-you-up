@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block content %}
+{% block main_content %}
 <!-- Add user details -->
 <h2>{{user['first_name']}}'s Profile</h2>
 <p>Score: 
@@ -13,12 +13,12 @@
 
 <ol>
     {% for cheerup in cheerups %}
-    <li>
-        {{cheerup['cheerup']}}
-    <form action="/delete/{{cheerup['cheerupid']}}" method="POST">
-        <button type="submit" value="Submit">Delete</button>
-    </form>
+    <li class="cheerup-container">
+        <div class="cheerup">{{cheerup['cheerup']}}</div>
+        <form action="/delete/{{cheerup['cheerupid']}}" method="POST">
+            <button type="submit" value="Submit">Delete</button>
+        </form>
     </li>
     {% endfor %}
 </ol>
-{% endblock %}
+{% endblock main_content %}

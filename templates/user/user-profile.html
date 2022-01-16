@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block content %}
+{% block main_content %}
 {% if cheerups %}
 <!-- Add user details -->
 <h2>{{cheerups[0]['first_name']}}'s Profile</h2>
@@ -36,4 +36,4 @@
     </ol>
 </div>
 {% endif %}
-{% endblock %}
+{% endblock main_content %}

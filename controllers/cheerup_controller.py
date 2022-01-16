@@ -1,7 +1,7 @@
 import bcrypt
 from flask import Blueprint, request, redirect, render_template, session
 from database import sql_write
-from models.cheerup import get_all_cheer_ups, insert_cheerup, get_cheerup, remove_cheerup, upvote_cheerup, update_voters
+from models.cheerup import get_all_cheer_ups, insert_cheerup, get_cheerup, remove_cheerup, upvote_cheerup, update_voters, get_top_ten_cheer_ups, get_ten_most_recent_cheerups
 from helpers.weather import get_location, get_weather
 from models.user import update_score
 
@@ -11,8 +11,9 @@ cheerup_controller = Blueprint("cheerup_controller", __name__, template_folder="
 def cheerup_home():
     logged_in_avatar = session.get('avatar')
     user_id = session.get('user_id')
-    cheerups = get_all_cheer_ups()
-    return render_template('index.html', cheerups=cheerups, avatar = logged_in_avatar, user_id = user_id)
+    top_ten_cheerups = get_top_ten_cheer_ups()
+    recent_ten_cheerups = get_ten_most_recent_cheerups()
+    return render_template('index.html', top_ten_cheerups=top_ten_cheerups, recent_ten_cheerups=recent_ten_cheerups, avatar = logged_in_avatar, user_id = user_id)
 
 @cheerup_controller.route('/cheerup/create', methods=["POST"])
 def create_cheerup():

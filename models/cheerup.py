@@ -4,6 +4,14 @@ def get_all_cheer_ups():
     results = database.sql_select('select cheerups.cheerup, users.avatar_url, users.first_name, cheerups.rating, cheerups.id as cheerupid, users.id as userid, cheerups.voters, cheerups.weather FROM cheerups INNER JOIN users ON cheerups.user_id = users.id order by rating DESC', [])
     return results
 
+def get_top_ten_cheer_ups():
+    results = database.sql_select('select cheerups.cheerup, users.avatar_url, users.first_name, cheerups.rating, cheerups.id as cheerupid, users.id as userid, cheerups.voters, cheerups.weather FROM cheerups INNER JOIN users ON cheerups.user_id = users.id order by rating DESC LIMIT 10', [])
+    return results
+
+def get_ten_most_recent_cheerups():
+    results = database.sql_select('SELECT cheerups.cheerup, users.avatar_url, users.first_name, cheerups.rating, cheerups.id as cheerupid, users.id as userid, cheerups.voters, cheerups.weather FROM cheerups INNER JOIN users ON cheerups.user_id = users.id order by cheerups.timestamp DESC LIMIT 10', [])
+    return results
+
 def insert_cheerup(cheerup, user_id, weather):
     if weather == None:
         database.sql_write('INSERT INTO cheerups (user_id, cheerup, rating, voters) VALUES (%s, %s, %s, %s)', [user_id, cheerup, 0, []])
