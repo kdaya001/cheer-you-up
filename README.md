@@ -51,10 +51,10 @@ MVP Relational Database Diagram
 - [x] [API] Provide the weather for each user based off the users IP address
 * Allocate current mood when posting a cheerup
 * [API] Allocate a song to their profile ('currently on repeat')
-* [API] Add a random joke of the day as an easter egg somewhere on the page 
+- [x] [API] Add a random joke of the day as an easter egg somewhere on a page 
 * Allow users to follow other users cheerups!!
 * Allow public and private cheerups
-[x] Display a cheeruper reptuation (i.e. score)
+- [x] Display a cheeruper reptuation (i.e. score)
 
 ![Additional Features Relational Diagram](/static/images/readme/additional-features-db-diagram.png)
 

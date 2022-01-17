@@ -31,8 +31,8 @@ def create_cheerup():
     city = get_location(visitor_ip)
     weather = None
 
-    #teesting TODO
-    # city = "Sydney"
+    # teesting TODO
+    city = "Sydney"
 
     if city != None: 
         weather = get_weather(city)

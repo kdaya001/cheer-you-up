@@ -19,10 +19,10 @@
                 <div class="user-details">
                     <p>Cheerup Score: {{cheerup['rating']}}</p>
                     {% if cheerup['weather'] %}
-                    <img
+                    <p>{{cheerup['first_name']}}'s weather:<img
                         class="weather-icon"
                         src="http://openweathermap.org/img/wn/{{cheerup['weather']}}.png"
-                    />
+                    /></p>
                     {% endif %} {% if user_id %} {% if user_id !=
                     cheerup['userid'] %} {% if user_id not in
                     cheerup['voters'] %}
