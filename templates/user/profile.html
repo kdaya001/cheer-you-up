@@ -5,6 +5,13 @@
 {% endblock additionalStyles %}
 
 {% block main_content %}
+{% if current_user %}
+<div id="easter-egg-container">
+    <p>You found an easter egg!</p>
+    <p>{{easter_egg}}</p>
+</div>
+{% endif %}
+
 <div class="user-container">
     <h2>{{cheerups[0]['first_name']}}'s Profile</h2>
     <p>Summary:</p>
@@ -26,6 +33,11 @@
                             {{cheerup['first_name']}}
                         </p>
                     </a>
+                    {% if current_user %}
+                    <form id="delete-form" action="/delete/{{cheerup['cheerupid']}}" method="POST">
+                        <button type="submit" value="Submit">Delete</button>
+                    </form>
+                    {% endif %}
                 </div>
                 <div class="cheerup">{{cheerup['cheerup']}}</div>
                 <span class="find-out-more">+</span>
@@ -54,7 +66,11 @@
                 </div>
             </li>
         {% else %}
-        <p>{{cheerup['first_name']}} does not have any cheerups posted right now</p>
+            {% if current_user %}
+            <p>You do not have any cheerups</p>
+            {% else %}
+            <p>{{cheerup['first_name']}} does not have any cheerups posted right now</p>
+            {% endif %}
         {% endif %}
         {% endfor %}
     </ol>
@@ -69,4 +85,9 @@
 
 {% block javascript %}
 <script src="/static/javascript/cheerup-list.js"></script>
+
+{% if current_user %}
+<script src="/static/javascript/easter-egg.js"></script>
+{% endif %}
+
 {% endblock javascript %} 

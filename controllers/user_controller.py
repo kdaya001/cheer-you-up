@@ -49,7 +49,7 @@ def my_profile():
         user_details = get_user(user_id)
         #query the database for cheerups for the speecified user
         cheerups = get_all_user_cheerups(user_id)
-        return render_template('my-profile.html', user = user_details[0], cheerups = cheerups, user_id = user_id, avatar=avatar, easter_egg = easter_egg)
+        return render_template('profile.html', cheerups = cheerups, user_id = user_id, avatar=avatar, easter_egg = easter_egg, current_user = True)
     else:
         #if the user isn't logged in, redirect to sign up
         return redirect('/signup')
@@ -69,6 +69,6 @@ def user_profile(id):
     #check if the user is trying to access a profile that doesn't exist (e.g. manual URL change)
     if len(cheerups) > 0:
         avatar = get_session_avatar()
-        return render_template('user-profile.html', cheerups = cheerups, user_id = current_user, avatar = avatar)
+        return render_template('profile.html', cheerups = cheerups, user_id = current_user, avatar = avatar, current_user = False)
     else:
         return redirect('/')
