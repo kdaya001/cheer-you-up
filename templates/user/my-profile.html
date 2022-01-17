@@ -5,6 +5,7 @@
 {% endblock additionalStyles %}
 
 {% block main_content %}
+<p id=easter-egg>{{easter_egg}}</p>
 <div class="user-container">
     {% if cheerups %}
     <h2>{{cheerups[0]['first_name']}}'s Profile</h2>
@@ -17,16 +18,22 @@
 <div class="content-container">
     <ol>
         {% for cheerup in cheerups %}
-        <li class="cheerup-container">
-            <div class="cheerup">{{cheerup['cheerup']}}</div>
-            <form action="/delete/{{cheerup['cheerupid']}}" method="POST">
-                <button type="submit" value="Submit">Delete</button>
-            </form>
-        </li>
+        {% if cheerup['cheerup'] != None %}
+            <li class="cheerup-container">
+                <div class="cheerup">{{cheerup['cheerup']}}</div>
+                <form action="/delete/{{cheerup['cheerupid']}}" method="POST">
+                    <button type="submit" value="Submit">Delete</button>
+                </form>
+            </li>
+        {% else %}
+        <p>You do not have any cheerups</p>
+        {% endif %}
         {% endfor %}
     </ol>
-    {% else %}
-    <p>You do not have any cheerups</p>
     {% endif %}
 </div>
 {% endblock main_content %}
+
+{% block javascript %}
+<script src="/static/javascript/easter-egg.js"></script>
+{% endblock javascript %}

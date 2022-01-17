@@ -1,3 +1,4 @@
+from operator import ge
 from flask import Blueprint, request, redirect, render_template, session
 from models.cheerup import get_all_cheer_ups, insert_cheerup, get_cheerup, upvote_cheerup, update_voters, get_top_ten_cheer_ups, get_ten_most_recent_cheerups, delete_cheerup
 from helpers.weather import get_location, get_weather
@@ -29,6 +30,10 @@ def create_cheerup():
     visitor_ip = request.headers.get('X-Forwarded-For', request.remote_addr)
     city = get_location(visitor_ip)
     weather = None
+
+    #teesting TODO
+    city = "Sydney"
+
     if city != None: 
         weather = get_weather(city)
     insert_cheerup(cheerup, user_id, weather)

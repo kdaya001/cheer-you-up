@@ -11,6 +11,12 @@
 #logo {
     font-family: 'Parisienne', cursive;
     font-size: 3rem;
+    text-align: center;
+    padding-top: 15px;
+}
+
+form select {
+    padding: 10px 20px;
 }
 
 ol {

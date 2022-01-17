@@ -4,6 +4,7 @@ from models.user import insert_user, get_user, get_all_users, get_all_user_cheer
 from helpers.avatar import generate_avatar
 from models.cheerup import get_user_cheerups
 from helpers.sessions import get_session_avatar, get_session_user_id
+from helpers.jokes import get_rand_joke
 
 
 user_controller = Blueprint("user_controller", __name__, template_folder="../templates/user")
@@ -42,12 +43,13 @@ def my_profile():
     user_id = get_session_user_id()
     #if user is logged in 
     if user_id:
+        #generate easter egg
+        easter_egg = get_rand_joke()
         #query the database for user details
         user_details = get_user(user_id)
         #query the database for cheerups for the speecified user
-        cheerups = get_user_cheerups(user_id)
-        print(cheerups)
-        return render_template('my-profile.html', user = user_details[0], cheerups = cheerups, user_id = user_id, avatar=avatar)
+        cheerups = get_all_user_cheerups(user_id)
+        return render_template('my-profile.html', user = user_details[0], cheerups = cheerups, user_id = user_id, avatar=avatar, easter_egg = easter_egg)
     else:
         #if the user isn't logged in, redirect to sign up
         return redirect('/signup')
@@ -63,8 +65,8 @@ def user_profile(id):
             #if the signed in user is trying to access their own profile, redirect to /my-profile route
             return redirect('/my-profile')
     #if the user is not trying to access their own profile, query the database for the users cheerups
-    #check if the user is trying to access a profile that doesn't exist (e.g. manual URL change)
     cheerups = get_all_user_cheerups(id)
+    #check if the user is trying to access a profile that doesn't exist (e.g. manual URL change)
     if len(cheerups) > 0:
         avatar = get_session_avatar()
         return render_template('user-profile.html', cheerups = cheerups, user_id = current_user, avatar = avatar)

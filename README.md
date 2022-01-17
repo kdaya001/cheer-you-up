@@ -54,7 +54,7 @@ MVP Relational Database Diagram
 * [API] Add a random joke of the day as an easter egg somewhere on the page 
 * Allow users to follow other users cheerups!!
 * Allow public and private cheerups
-* Display a cheeruper reptuation
+[x] Display a cheeruper reptuation (i.e. score)
 
 ![Additional Features Relational Diagram](/static/images/readme/additional-features-db-diagram.png)
 
