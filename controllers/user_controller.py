@@ -37,38 +37,23 @@ def create_user():
     else:
         return redirect('/signup')
 
-@user_controller.route('/my-profile')
-def my_profile():
-    avatar = get_session_avatar()
-    user_id = get_session_user_id()
-    #if user is logged in 
-    if user_id:
-        #generate easter egg
-        easter_egg = get_rand_joke()
-        #query the database for user details
-        user_details = get_user(user_id)
-        #query the database for cheerups for the speecified user
-        cheerups = get_all_user_cheerups(user_id)
-        return render_template('profile.html', cheerups = cheerups, user_id = user_id, avatar=avatar, easter_egg = easter_egg, current_user = True)
-    else:
-        #if the user isn't logged in, redirect to sign up
-        return redirect('/signup')
-
 @user_controller.route('/user-profile/<id>')
 def user_profile(id):
     #get currently logged in user
     current_user = get_session_user_id()
+    #if the user is not trying to access their own profile, query the database for the users cheerups
+    cheerups = get_all_user_cheerups(id)
+    avatar = get_session_avatar()
+
     #check if a user is signed in
     if current_user:
         #if the user is signed, check if the currently signed in user matches the user they're trying to view
         if current_user == int(id):
             #if the signed in user is trying to access their own profile, redirect to /my-profile route
-            return redirect('/my-profile')
-    #if the user is not trying to access their own profile, query the database for the users cheerups
-    cheerups = get_all_user_cheerups(id)
+            return render_template('profile.html', cheerups = cheerups, user_id = current_user, avatar = avatar, current_user = True)
+
     #check if the user is trying to access a profile that doesn't exist (e.g. manual URL change)
     if len(cheerups) > 0:
-        avatar = get_session_avatar()
         return render_template('profile.html', cheerups = cheerups, user_id = current_user, avatar = avatar, current_user = False)
     else:
         return redirect('/')

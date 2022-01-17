@@ -32,7 +32,7 @@ def create_cheerup():
     weather = None
 
     #teesting TODO
-    city = "Sydney"
+    # city = "Sydney"
 
     if city != None: 
         weather = get_weather(city)
@@ -46,7 +46,8 @@ def remove_cheerup(id):
         cheerup_detail = cheerup_details[0]
         if cheerup_detail['user_id'] == get_session_user_id():
             delete_cheerup(id)
-            return redirect('/my-profile')
+            url = f'/user-profile/{cheerup_detail["user_id"]}'
+            return redirect(url)
     else: 
         return redirect(request.referrer)
 
