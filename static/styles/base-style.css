@@ -111,7 +111,7 @@ body {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    background-color: rgb(51, 59, 50);
+    background-color: rgb(102, 48, 202);
     position: fixed;
     top: 0;
     width: 100%;
@@ -142,6 +142,7 @@ body {
 
 .avatar-li {
     float: right;
+    background-color: rgb(137, 199, 189);
 }
 
 /* .posted-by-div > * {
@@ -157,13 +158,11 @@ body {
 .top-content-container {
     grid-column: 1 / span 3;
     grid-row: 1 / span 1;
-    padding-top: 40px;
     background-color: #ffffff;
     margin: 0 auto;
     margin-bottom: 30px;
     width: 80%;
     border-radius: 1em;
-    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
 }
 
 .main-content-container {
@@ -199,14 +198,15 @@ body {
     grid-column: 2 / span 1;
 }
 
-.cheerup-heading {
+.cheerup-heading, .cheerupers-heading {
     text-align: center;
 }
 
 .top-content-container img {
-    width: 100%;
+    display: block;
+    max-width: 80%;
     height: auto;
-    margin: 0;
+    margin: auto;
     padding: 0;
     border-radius: 1em;
 }
@@ -231,4 +231,15 @@ form {
 
 .cheerup-heading {
     font-family: 'Rubik', sans-serif;
+}
+
+.all-cheerups-container {
+    grid-column: 1 / span 1;
+    background-color: #ffffff;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    width: 80%;
+    border-radius: 1em;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
 }

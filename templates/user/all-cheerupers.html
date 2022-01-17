@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block main_content %} 
+{% if cheerupers %}
+<div class="all-cheerups-container">
+    <h1 class="cheerupers-heading">All Cheerupers</h1>
+        <ol>
+            {% for cheeruper in cheerupers %}
+            <li class="cheeruper-container">
+                <div class="poster-details">
+                    <a href="/user-profile/{{cheeruper['id']}}">
+                        <p class="first_name">
+                            <img class="avatar" src="{{cheeruper['avatar_url']}}" />
+                            {{cheeruper['first_name']}}
+                        </p>
+                    </a>
+                </div>
+                <div class="cheeruper">Score: {{cheeruper['score']}}</div>
+            </li>
+            {% endfor %}
+        </ol>
+</div>
+
+{% else %}
+<h2>
+    There currently aren't any cheeruper! Sign up be the
+    first one!
+</h2>
+<p>Help make someones day!</p>
+{% endif %}
+</div>
+
+{% endblock main_content %}

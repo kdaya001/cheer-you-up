@@ -1,6 +1,6 @@
 from flask import Blueprint, request, redirect, render_template, session
 import bcrypt
-from models.user import insert_user, get_user
+from models.user import insert_user, get_user, get_all_users
 from helpers.avatar import generate_avatar
 from models.cheerup import get_user_cheerups
 
@@ -10,6 +10,14 @@ user_controller = Blueprint("user_controller", __name__, template_folder="../tem
 @user_controller.route('/signup')
 def signup():
     return render_template('signup.html')
+
+@user_controller.route('/all-cheerupers')
+def show_cheerupers():
+    logged_in_avatar = session.get('avatar')
+    user_id = session.get('user_id')
+    cheerupers = get_all_users()
+    print(cheerupers)
+    return render_template('all-cheerupers.html', cheerupers=cheerupers, user_id=user_id, avatar=logged_in_avatar)
 
 @user_controller.route('/create-user', methods=["POST"])
 def create_user():

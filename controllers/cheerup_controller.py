@@ -15,6 +15,14 @@ def cheerup_home():
     recent_ten_cheerups = get_ten_most_recent_cheerups()
     return render_template('index.html', top_ten_cheerups=top_ten_cheerups, recent_ten_cheerups=recent_ten_cheerups, avatar = logged_in_avatar, user_id = user_id)
 
+@cheerup_controller.route('/all-cheerups')
+def all_cheerups():
+    all_cheerups = get_all_cheer_ups()
+    logged_in_avatar = session.get('avatar')
+    user_id = session.get('user_id')
+    print(all_cheerups)
+    return render_template('all-cheerups.html', cheerups=all_cheerups, user_id = user_id, avatar=logged_in_avatar)
+
 @cheerup_controller.route('/cheerup/create', methods=["POST"])
 def create_cheerup():
     cheerup = request.form.get('new_cheerup')

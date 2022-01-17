@@ -11,3 +11,6 @@ def get_user(user_id):
 
 def update_score(id):
     database.sql_write('UPDATE users SET score = score + 1 WHERE id = %s', [id])
+
+def get_all_users():
+    return database.sql_select('SELECT * FROM USERS ORDER BY score DESC', [])
