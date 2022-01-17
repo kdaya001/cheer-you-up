@@ -6,6 +6,7 @@
 
 {% block main_content %}
 <div class="user-container">
+    {% if cheerups %}
     <h2>{{cheerups[0]['first_name']}}'s Profile</h2>
     <p>Summary:</p>
     <p>
@@ -24,5 +25,8 @@
         </li>
         {% endfor %}
     </ol>
+    {% else %}
+    <p>You do not have any cheerups</p>
+    {% endif %}
 </div>
 {% endblock main_content %}

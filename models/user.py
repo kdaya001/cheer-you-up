@@ -14,3 +14,6 @@ def update_score(id):
 
 def get_all_users():
     return database.sql_select('SELECT * FROM USERS ORDER BY score DESC', [])
+
+def get_all_user_cheerups(id):
+    return database.sql_select('SELECT users.id as userid, users.first_name, users.avatar_url, cheerups.id as cheerupsid, cheerups.rating, cheerups.cheerup, cheerups.weather from users LEFT JOIN cheerups on users.id = cheerups.id where users.id = %s ORDER BY rating DESC', [id])
