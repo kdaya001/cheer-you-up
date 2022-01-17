@@ -57,5 +57,8 @@ def user_profile(id):
             return redirect('/my-profile')
 
     cheerups = get_user_cheerups(id)
-    avatar = session.get('avatar')
-    return render_template('user-profile.html', cheerups = cheerups, user_id = current_user, avatar = avatar)
+    if cheerups:
+        avatar = session.get('avatar')
+        return render_template('user-profile.html', cheerups = cheerups, user_id = current_user, avatar = avatar)
+    else:
+        return redirect('/')
