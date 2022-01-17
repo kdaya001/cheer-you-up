@@ -5,7 +5,10 @@
 {% endblock additionalStyles %}
 
 {% block main_content %}
-<p id=easter-egg>{{easter_egg}}</p>
+<div id="easter-egg-container">
+    <p>You found an easter egg!</p>
+    <p>{{easter_egg}}</p>
+</div>
 <div class="user-container">
     {% if cheerups %}
     <h2>{{cheerups[0]['first_name']}}'s Profile</h2>

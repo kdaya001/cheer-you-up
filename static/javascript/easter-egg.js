@@ -6,7 +6,7 @@ function showEasterEgg() {
     if(counter != 2) {
         counter++;
     } else {
-        const easterEgg = document.getElementById('easter-egg');
+        const easterEgg = document.getElementById('easter-egg-container');
         if(easterEgg.style.display == "block") {
             easterEgg.style.display = "none";
         } else {

@@ -1,4 +1,4 @@
-.content-container, .user-container {
+.content-container, .user-container, #easter-egg-container {
     padding: 10px;
     background-color: #ffffff;
     margin: 0 auto;
@@ -16,6 +16,7 @@
     text-align: center;
 }
 
-#easter-egg {
+#easter-egg-container {
     display: none;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
