@@ -2,7 +2,7 @@ from flask import Blueprint, request, redirect, render_template, session
 import bcrypt
 from models.user import insert_user, get_user, get_all_users, get_all_user_cheerups
 from helpers.avatar import generate_avatar
-# from models.cheerup import get_user_cheerups
+from models.cheerup import get_user_cheerups
 from helpers.sessions import get_session_avatar, get_session_user_id
 
 
@@ -46,6 +46,7 @@ def my_profile():
         user_details = get_user(user_id)
         #query the database for cheerups for the speecified user
         cheerups = get_user_cheerups(user_id)
+        print(cheerups)
         return render_template('my-profile.html', user = user_details[0], cheerups = cheerups, user_id = user_id, avatar=avatar)
     else:
         #if the user isn't logged in, redirect to sign up
@@ -62,9 +63,10 @@ def user_profile(id):
             #if the signed in user is trying to access their own profile, redirect to /my-profile route
             return redirect('/my-profile')
     #if the user is not trying to access their own profile, query the database for the users cheerups
-    cheerups = get_user_cheerups(id)
-    # if cheerups:
-    avatar = get_session_avatar()
-    return render_template('user-profile.html', cheerups = cheerups, user_id = current_user, avatar = avatar)
-    # else:
-        # return redirect('/')
+    #check if the user is trying to access a profile that doesn't exist (e.g. manual URL change)
+    cheerups = get_all_user_cheerups(id)
+    if len(cheerups) > 0:
+        avatar = get_session_avatar()
+        return render_template('user-profile.html', cheerups = cheerups, user_id = current_user, avatar = avatar)
+    else:
+        return redirect('/')

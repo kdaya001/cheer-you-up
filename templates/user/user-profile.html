@@ -17,41 +17,45 @@
 <div class="content-container">
     <ol>
         {% for cheerup in cheerups %}
-        <li class="cheerup-container">
-            <div class="poster-details">
-                <a href="/user-profile/{{cheerup['userid']}}">
-                    <p class="first_name">
-                        <img class="avatar" src="{{cheerup[1]}}" />
-                        {{cheerup['first_name']}}
-                    </p>
-                </a>
-            </div>
-            <div class="cheerup">{{cheerup[0]}}</div>
-            <span class="find-out-more">+</span>
-            <div class="user-details">
-                <p>Cheerup Score: {{cheerup['rating']}}</p>
-                {% if cheerup['weather'] %}
-                <img
-                    class="weather-icon"
-                    src="http://openweathermap.org/img/wn/{{cheerup['weather']}}.png"
-                />
-                {% endif %} 
-                {% if user_id %} 
-                    {% if user_id != cheerup['userid'] %} 
-                        {% if user_id not in cheerup['voters'] %}
-                        <form
-                            action="/upvote/{{cheerup['cheerupid']}}"
-                            method="POST"
-                        >
-                            <button class="button" type="submit">
-                                Upvote +1
-                            </button>
-                        </form>
-                        {% endif %} 
+        {% if cheerup['cheerup'] != None %}
+            <li class="cheerup-container">
+                <div class="poster-details">
+                    <a href="/user-profile/{{cheerup['userid']}}">
+                        <p class="first_name">
+                            <img class="avatar" src="{{cheerup['avatar_url']}}" />
+                            {{cheerup['first_name']}}
+                        </p>
+                    </a>
+                </div>
+                <div class="cheerup">{{cheerup['cheerup']}}</div>
+                <span class="find-out-more">+</span>
+                <div class="user-details">
+                    <p>Cheerup Score: {{cheerup['rating']}}</p>
+                    {% if cheerup['weather'] %}
+                    <img
+                        class="weather-icon"
+                        src="http://openweathermap.org/img/wn/{{cheerup['weather']}}.png"
+                    />
                     {% endif %} 
-                {% endif %}
-            </div>
-        </li>
+                    {% if user_id %} 
+                        {% if user_id != cheerup['userid'] %} 
+                            {% if user_id not in cheerup['voters'] %}
+                            <form
+                                action="/upvote/{{cheerup['cheerupid']}}"
+                                method="POST"
+                            >
+                                <button class="button" type="submit">
+                                    Upvote +1
+                                </button>
+                            </form>
+                            {% endif %} 
+                        {% endif %} 
+                    {% endif %}
+                </div>
+            </li>
+        {% else %}
+        <p>{{cheerup['first_name']}} does not have any cheerups posted right now</p>
+        {% endif %}
         {% endfor %}
     </ol>
 </div>
