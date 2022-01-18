@@ -19,7 +19,7 @@
                             </p>
                         </a>
                     </div>
-                    <div class="cheerup">{{cheerup[0]}}</div>
+                    <div class="cheerup">{{cheerup['cheerup']}}</div>
                     <span class="find-out-more">+</span>
                     <div class="user-details">
                         <p>Cheerup Score: {{cheerup['rating']}}</p>
@@ -61,7 +61,7 @@
                             </p>
                         </a>
                     </div>
-                    <div class="cheerup">{{cheerup[0]}}</div>
+                    <div class="cheerup">{{cheerup['cheerup']}}</div>
                     <span class="find-out-more">+</span>
                     <div class="user-details">
                         <p>Cheerup Score: {{cheerup['rating']}}</p>
@@ -110,6 +110,7 @@
                 type="text"
                 placeholder="Add a cheerup"
                 name="new_cheerup"
+                maxlength="139"
                 required
             />
             <!-- <select id="mood" name="current_mood">
