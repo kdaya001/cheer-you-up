@@ -77,11 +77,34 @@
 </div>
 {% else %}
 
-{% endif %}
-{% endblock main_content %}
 <div class="content-container">
     <p>This user has not posted any cheerups</p>
 </div>
+
+
+{% endif %}
+
+{% if current_user %}
+<div class="post-content-container">
+    <form action="\cheerup\create" method="post">
+        <input
+            class="input"
+            type="text"
+            placeholder="Add a cheerup"
+            name="new_cheerup"
+            required
+        />
+        <!-- <select id="mood" name="current_mood">
+            <option value="happy">&#x1F600&nbsp</option>
+            <option value="neutral">&#x1F636&nbsp</option>
+            <option value="sad">&#x1F61E&nbsp</option>
+        </select> -->
+        <button class="button" type="submit">Sumbit</button>
+    </form>
+</div>
+{% endif %}
+
+{% endblock main_content %}
 
 {% block javascript %}
 <script src="/static/javascript/cheerup-list.js"></script>

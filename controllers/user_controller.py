@@ -50,7 +50,8 @@ def user_profile(id):
         #if the user is signed, check if the currently signed in user matches the user they're trying to view
         if current_user == int(id):
             #if the signed in user is trying to access their own profile, redirect to /my-profile route
-            return render_template('profile.html', cheerups = cheerups, user_id = current_user, avatar = avatar, current_user = True)
+            easter_egg = get_rand_joke()
+            return render_template('profile.html', cheerups = cheerups, user_id = current_user, avatar = avatar, current_user = True, easter_egg=easter_egg)
 
     #check if the user is trying to access a profile that doesn't exist (e.g. manual URL change)
     if len(cheerups) > 0:

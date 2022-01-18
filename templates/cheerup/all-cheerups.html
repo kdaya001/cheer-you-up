@@ -53,16 +53,18 @@
     </h2>
     <p>Make someones day!</p>
     {% endif %} {% if user_id %}
-    <form action="\cheerup\create" method="post">
-        <input
-            class="input"
-            type="text"
-            placeholder="Add a cheerup"
-            name="new_cheerup"
-            required
-        />
-        <button class="button" type="submit">Sumbit</button>
-    </form>
+    <div class="main-content-container">
+        <form action="\cheerup\create" method="post">
+            <input
+                class="input"
+                type="text"
+                placeholder="Add a cheerup"
+                name="new_cheerup"
+                required
+            />
+            <button class="button" type="submit">Sumbit</button>
+        </form>
+    </div>
     {% endif %}
 </div>
 {% endblock main_content %}
