@@ -6,86 +6,88 @@
 
 {% block main_content %}
 {% if current_user %}
-<div id="easter-egg-container">
+<aside id="easter-egg-container">
     <p>You found an easter egg!</p>
     <p>{{easter_egg}}</p>
-</div>
+</aside>
 {% endif %}
 
-<div class="user-container">
+<section class="user-container">
     <h2>{{cheerups[0]['first_name']}}'s Profile</h2>
     <p>Summary:</p>
     <p>
         Total Cheerup Score: {{cheerups[0]['score']}}
     </p>
-</div>
+</section>
 
 {% if cheerups %}
-<div class="content-container">
+<section class="content-container">
     <ol>
         {% for cheerup in cheerups %}
         {% if cheerup['cheerup'] != None %}
-            <li class="cheerup-container">
-                <div class="poster-details">
-                    <a href="/user-profile/{{cheerup['userid']}}">
-                        <p class="first_name">
-                            <img class="avatar" src="{{cheerup['avatar_url']}}" />
-                            {{cheerup['first_name']}}
-                        </p>
-                    </a>
-                    {% if current_user %}
-                    <form id="delete-form" action="/delete/{{cheerup['cheerupid']}}" method="POST">
-                        <button type="submit" value="Submit">Delete</button>
-                    </form>
-                    {% endif %}
-                </div>
-                <div class="cheerup">{{cheerup['cheerup']}}</div>
-                <span class="find-out-more">+</span>
-                <div class="user-details">
-                    <p>Cheerup Score: {{cheerup['rating']}}</p>
-                    {% if cheerup['weather'] %}
-                    <p>{{cheerup['first_name']}}'s weather:<img
+        <li>
+            <a href="/user-profile/{{cheerup['userid']}}">
+                <p class="first_name">
+                    <img class="avatar" src="{{cheerup['avatar_url']}}" />
+                    {{cheerup['first_name']}}
+                </p>
+            </a>
+            <!-- If the logged in user is viewing their own profile, allow them to delete posts -->
+            {% if current_user %}
+            <form id="delete-form" action="/delete/{{cheerup['cheerupid']}}" method="POST">
+                <button type="submit" value="Submit">Delete</button>
+            </form>
+            {% endif %}
+            <div class="cheerup">{{cheerup['cheerup']}}</div>
+            <span class="find-out-more">+</span>
+            <div class="user-details">
+                <p>Cheerup Score: {{cheerup['rating']}}</p>
+                {% if cheerup['weather'] %}
+                <p>{{cheerup['first_name']}}'s weather:
+                    <img
                         class="weather-icon"
                         src="http://openweathermap.org/img/wn/{{cheerup['weather']}}.png"
-                    /></p>
-                    {% endif %} 
-                    {% if user_id %} 
-                        {% if user_id != cheerup['userid'] %} 
-                            {% if user_id not in cheerup['voters'] %}
-                            <form
-                                action="/upvote/{{cheerup['cheerupid']}}"
-                                method="POST"
-                            >
-                                <button class="button" type="submit">
-                                    Upvote +1
-                                </button>
-                            </form>
-                            {% endif %} 
+                    />
+                </p>
+                {% endif %} 
+                {% if user_id %} 
+                    {% if user_id != cheerup['userid'] %} 
+                        {% if user_id not in cheerup['voters'] %}
+                        <form
+                            action="/upvote/{{cheerup['cheerupid']}}"
+                            method="POST"
+                        >
+                            <button class="button" type="submit">
+                                Upvote +1
+                            </button>
+                        </form>
                         {% endif %} 
-                    {% endif %}
-                </div>
-            </li>
+                    {% endif %} 
+                {% endif %}
+            </div>
+        </li>
         {% else %}
+            <!-- If the user logged in is viewing their own profile and have no cheerups posted -->
             {% if current_user %}
             <p>You do not have any cheerups</p>
+            <!-- If the user is viewing someone elses profile and the user their viewing does not have any posts. This is only for users that have previously posted and have scores, etc -->
             {% else %}
             <p>{{cheerup['first_name']}} does not have any cheerups posted right now</p>
             {% endif %}
         {% endif %}
         {% endfor %}
     </ol>
-</div>
+</section>
+
+<!-- If the user is viewing someone elses profile and the user their viewing does not have any posts and has never posted. -->
 {% else %}
-
-<div class="content-container">
+<section class="content-container">
     <p>This user has not posted any cheerups</p>
-</div>
-
-
+</section>
 {% endif %}
 
 {% if current_user %}
-<div class="post-content-container">
+<section class="post-content-container">
     <form action="\cheerup\create" method="post">
         <input
             class="input"
@@ -96,16 +98,13 @@
         />
         <button class="button" type="submit">Sumbit</button>
     </form>
-</div>
+</section>
 {% endif %}
-
 {% endblock main_content %}
 
 {% block javascript %}
 <script src="/static/javascript/cheerup-list.js"></script>
-
 {% if current_user %}
 <script src="/static/javascript/easter-egg.js"></script>
 {% endif %}
-
 {% endblock javascript %} 
