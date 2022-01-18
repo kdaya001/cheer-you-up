@@ -1,8 +1,7 @@
 from flask import Blueprint, request, redirect, render_template, session
 import bcrypt
-from models.user import insert_user, get_user, get_all_users, get_all_user_cheerups
+from models.user import insert_user, get_all_users, get_all_user_cheerups
 from helpers.avatar import generate_avatar
-from models.cheerup import get_user_cheerups
 from helpers.sessions import get_session_avatar, get_session_user_id
 from helpers.jokes import get_rand_joke
 

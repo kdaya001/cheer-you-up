@@ -6,9 +6,6 @@ def insert_user(first_name, last_name, email, hashed_password, avatar):
 def get_user_by_email(email):
     return database.sql_select('SELECT * FROM users WHERE email = %s', [email])
 
-def get_user(user_id):
-    return database.sql_select('SELECT * FROM users WHERE id = %s', [user_id])
-
 def update_score(id):
     database.sql_write('UPDATE users SET score = score + 1 WHERE id = %s', [id])
 
