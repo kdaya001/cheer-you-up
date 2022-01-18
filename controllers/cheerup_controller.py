@@ -20,7 +20,6 @@ def all_cheerups():
     all_cheerups = get_all_cheer_ups()
     user_id = get_session_user_id()
     avatar = get_session_avatar()
-    print(all_cheerups)
     return render_template('all-cheerups.html', cheerups=all_cheerups, user_id = user_id, avatar=avatar)
 
 @cheerup_controller.route('/cheerup/create', methods=["POST"])
@@ -30,12 +29,9 @@ def create_cheerup():
     visitor_ip = request.headers.get('X-Forwarded-For', request.remote_addr)
     city = get_location(visitor_ip)
     weather = None
-
-    # teesting TODO
-    city = "Sydney"
-
     if city != None: 
         weather = get_weather(city)
+    print(cheerup)
     insert_cheerup(cheerup, user_id, weather)
     return redirect('/')
 
