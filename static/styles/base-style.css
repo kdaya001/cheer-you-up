@@ -1,5 +1,6 @@
 body {
     box-sizing: border-box;
+    margin: auto 0;
 }
 
 .avatar {
@@ -36,7 +37,6 @@ ol li {
     background-color: rgb(255, 255, 255);
     color: #444;
     box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.14);
-    max-width:38rem;
     word-wrap:break-word;
 }
 
@@ -99,10 +99,6 @@ input {
     text-align: center;
 }
 
-body {
-    margin: 0;
-}
-
 .nav-ul {
     list-style-type: none;
     margin: 0;
@@ -141,59 +137,14 @@ body {
     background-color: rgb(137, 199, 189);
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-}
-
-.top-content-container {
-    grid-column: 1 / span 3;
-    grid-row: 1 / span 1;
-    background-color: #ffffff;
-    margin: 0 auto;
-    margin-bottom: 30px;
-    width: 80%;
-    border-radius: 1em;
-}
-
 .main-content-container, .post-content-container {
     margin: 0 auto;
     width: 80%;
     border-radius: 1em;
     grid-row: 2 / span 1;
     grid-column: 1 / span 3;
-
     display: grid;
     grid-template-columns: 1fr 1fr;
-}
-
-.popular-cheerups {
-    grid-column: 1 / span 1;
-    background-color: #ffffff;
-    margin: 0 auto;
-    margin-bottom: 30px;
-    width: 95%;
-    border-radius: 1em;
-    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
-}
-
-.recent-cheerups {
-    background-color: #ffffff;
-    margin: 0 auto;
-    margin-bottom: 30px;
-    width: 95%;
-    border-radius: 1em;
-    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
-    grid-column: 2 / span 1;
-}
-
-.top-content-container img {
-    display: block;
-    max-width: 80%;
-    height: auto;
-    margin: auto;
-    padding: 0;
-    border-radius: 1em;
 }
 
 .cheerup {
@@ -229,19 +180,11 @@ form {
     border-radius: 1em;
     box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
 }
-/* 
-.cheerup {
-    overflow-wrap: break-word;
-} */
 
 @media only screen and (max-width: 900px) {
     .main-content-container {
         display: flex;
         flex-direction: column;
-    }
-
-    .top-content-container {
-        width: 100%;
     }
     
     button {

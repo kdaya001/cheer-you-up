@@ -1,0 +1,53 @@
+ol li {
+    max-width: 38rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.top-content-container {
+    grid-column: 1 / span 3;
+    grid-row: 1 / span 1;
+    background-color: #ffffff;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    width: 80%;
+    border-radius: 1em;
+}
+
+.popular-cheerups {
+    grid-column: 1 / span 1;
+    background-color: #ffffff;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    width: 95%;
+    border-radius: 1em;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
+.recent-cheerups {
+    background-color: #ffffff;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    width: 95%;
+    border-radius: 1em;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+    grid-column: 2 / span 1;
+}
+
+.top-content-container img {
+    display: block;
+    max-width: 80%;
+    height: auto;
+    margin: auto;
+    padding: 0;
+    border-radius: 1em;
+}
+
+@media only screen and (max-width: 900px) {
+    .top-content-container {
+        width: 100%;
+    }
+}
