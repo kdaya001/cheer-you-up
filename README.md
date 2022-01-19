@@ -53,7 +53,7 @@ MVP Relational Database Diagram
 * [API] Allocate a song to their profile ('currently on repeat')
 - [x] [API] Add a random joke of the day as an easter egg somewhere on a page 
 * Allow users to follow other users cheerups!!
-* Allow public and private cheerups
+- [x] Allow public and private cheerups
 - [x] Display a cheeruper reptuation (i.e. score)
 - [x] Allow user to update their details (first name, last name, email address, password)
 
