@@ -71,7 +71,8 @@ ol li:after {
 }
 
 .button,
-.submit {
+.submit, 
+button {
     border-radius: 5em;
     color: #fff;
     background: linear-gradient(to right, #9c27b0, #e040fb);
@@ -83,7 +84,7 @@ ol li:after {
     font-family: sans-serif;
     font-size: 13px;
     box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
-    margin: 0 20px;
+    margin: 5px 20px;
 }
 
 input {

@@ -13,7 +13,7 @@
 {% endif %}
 
 <section class="user-container">
-    <h2>{{cheerups[0]['first_name']}}'s Profile</h2>
+    <h2>{{cheerups[0] ['first_name']}}'s Profile</h2>
     <p>Summary:</p>
     <p>
         Total Cheerup Score: {{cheerups[0]['score']}}
@@ -52,7 +52,7 @@
                     <button type="submit" value="Submit">Make Private</button>
                 </form>
                 {% else %}
-                <form class="visibility-form" action="/update-visibility/{{cheerup['cheerupid']}}">
+                <form class="visibility-form" action="/update-visibility/{{cheerup['cheerupid']}}" method="POST">
                     <button type="submit" value="Submit">Make Public</button>
                 </form>
                 {% endif %}
