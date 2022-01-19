@@ -5,7 +5,6 @@ CREATE TABLE users (
     password TEXT NOT NULL,
     email TEXT,
     avatar_url Text,
-    primary_cheerup_id INTEGER
     score = INTEGER
 );
 
