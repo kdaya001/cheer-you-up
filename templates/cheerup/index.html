@@ -97,20 +97,22 @@
                 {% endfor %}
             </ol>
         </div>
-
-        {% elif user_id %}
+    </div>
+    {% elif user_id %}
+    <div class="all-container">
         <h2>
             There currently aren't any cheerups! Create the first one to make
             someone's day!
         </h2>
-        {% else %}
+    </div>
+    {% else %}
+    <div class="all-container">
         <h2>
             There currently aren't any cheerups! Sign up or login to create the
             first one!
         </h2>
-        <p>Make someones day!</p>
-        {% endif %} 
-    </div>
+    <p>Make someones day!</p>
+    {% endif %} 
 </div>
 {% endblock main_content %}
 
