@@ -31,3 +31,9 @@ def upvote_cheerup(id):
 
 def update_voters(user_id, cheerup_id):
     database.sql_write('UPDATE cheerups SET voters = array_append(voters, %s) WHERE id = %s', [user_id, cheerup_id])
+
+def update_cheerup_to_private(id):
+    database.sql_write('UPDATE cheerups SET public_visible = False WHERE id = %s', [id])
+
+def update_cheerup_to_public(id):
+        database.sql_write('UPDATE cheerups SET public_visible = True WHERE id = %s', [id])

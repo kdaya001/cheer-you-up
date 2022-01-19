@@ -47,11 +47,11 @@
             {% if current_user %}
                 <!-- If the post is currently private let the user change to public -->
                 {% if cheerup['public_visible'] %}
-                <form class="visibility-form" action="update-visibility/{{cheerup['cheerupid']}}">
+                <form class="visibility-form" action="/update-visibility/{{cheerup['cheerupid']}}" method="POST">
                     <button type="submit" value="Submit">Make Private</button>
                 </form>
                 {% else %}
-                <form class="visibility-form" action="update-visibility/{{cheerup['cheerupid']}}">
+                <form class="visibility-form" action="/update-visibility/{{cheerup['cheerupid']}}">
                     <button type="submit" value="Submit">Make Public</button>
                 </form>
                 {% endif %}

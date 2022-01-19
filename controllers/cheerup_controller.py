@@ -1,6 +1,6 @@
 from operator import ge
 from flask import Blueprint, request, redirect, render_template, session
-from models.cheerup import get_all_public_cheer_ups, insert_cheerup, get_cheerup, upvote_cheerup, update_voters, get_top_ten_public_cheer_ups, get_ten_most_recent_public_cheerups, delete_cheerup
+from models.cheerup import get_all_public_cheer_ups, insert_cheerup, get_cheerup, upvote_cheerup, update_voters, get_top_ten_public_cheer_ups, get_ten_most_recent_public_cheerups, delete_cheerup, update_cheerup_to_private, update_cheerup_to_public
 from helpers.weather import get_location, get_weather
 from models.user import update_score
 from helpers.sessions import get_session_user_id, get_session_avatar
@@ -12,7 +12,6 @@ def cheerup_home():
     avatar = get_session_avatar()
     user_id = get_session_user_id()
     top_ten_cheerups = get_top_ten_public_cheer_ups()
-    print(top_ten_cheerups[0])
     recent_ten_cheerups = get_ten_most_recent_public_cheerups()
     return render_template('index.html', top_ten_cheerups=top_ten_cheerups, recent_ten_cheerups=recent_ten_cheerups, avatar = avatar, user_id = user_id)
 
@@ -66,3 +65,17 @@ def upvote(id):
         update_voters(session.get('user_id'), id)
         update_score(get_cheerup(id)[0]['user_id'])
         return redirect(request.referrer)
+
+@cheerup_controller.route('/update-visibility/<id>', methods=["POST"])
+def update_visibility(id):
+    cheerup = get_cheerup(id)
+    if cheerup:
+        current_visibility_status = cheerup[0]['public_visible']
+        if current_visibility_status:
+            update_cheerup_to_private(id)
+            return redirect(request.referrer)
+        else:
+            update_cheerup_to_public(id)
+            return redirect(request.referrer)
+    else:
+        return redirect('/')
