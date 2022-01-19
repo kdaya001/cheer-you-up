@@ -139,7 +139,8 @@ input {
     background-color: rgb(137, 199, 189);
 }
 
-.main-content-container, .post-content-container {
+/* .main-content-container,  */
+.post-content-container, .cheerup-content-container {
     margin: 0 auto;
     width: 80%;
     max-width: 1500px;
@@ -187,7 +188,7 @@ form {
 }
 
 @media only screen and (max-width: 900px) {
-    .main-content-container {
+    .cheerup-content-container {
         display: flex;
         flex-direction: column;
     }

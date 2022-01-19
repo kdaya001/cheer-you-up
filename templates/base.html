@@ -45,6 +45,7 @@
     <main>
 
         {% block top_content %} {% endblock top_content %}
+
         {% if user_id %}
         <section class="main-content-container">
             <form id="create-cheerup-form" action="\cheerup\create" method="post">
@@ -62,6 +63,7 @@
             </form>
         </section>
         {% endif %}
+        
         {% block main_content %}{% endblock main_content %}
     </main>
     <footer>
