@@ -29,3 +29,6 @@ def update_last_name(last_name, id):
 
 def update_email(email, id):
     database.sql_write('UPDATE users SET email = %s WHERE id = %s', [email, id])
+
+def update_password(hashed_password, id):
+    database.sql_write('UPDATE users SET password = %s WHERE id = %s', [hashed_password, id])

@@ -12,6 +12,8 @@
 
 .form_update {
     width: 600px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
 }
 
 .form_login {
