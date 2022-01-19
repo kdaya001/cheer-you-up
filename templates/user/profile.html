@@ -61,21 +61,24 @@
                 <button type="submit" value="Submit">Delete</button>
             </form>
             {% endif %}
+
             <div class="cheerup">{{cheerup['cheerup']}}</div>
             <span class="find-out-more">+</span>
             <div class="user-details">
-                <p>Cheerup Score: {{cheerup['rating']}}</p>
-                {% if cheerup['weather'] %}
+            <p>Cheerup Score: {{cheerup['rating']}}</p>
+            
+            {% if cheerup['weather'] %}
                 <p>{{cheerup['first_name']}}'s weather:
                     <img
                         class="weather-icon"
                         src="http://openweathermap.org/img/wn/{{cheerup['weather']}}.png"
                     />
                 </p>
-                {% endif %} 
-                {% if user_id %} 
-                    {% if user_id != cheerup['userid'] %} 
-                        {% if user_id not in cheerup['voters'] %}
+            {% endif %} 
+            
+            {% if current_user %} 
+                {% if user_id != cheerup['userid'] %} 
+                    {% if user_id not in cheerup['voters'] %}
                         <form
                             action="/upvote/{{cheerup['cheerupid']}}"
                             method="POST"
@@ -87,9 +90,9 @@
                         {% endif %} 
                     {% endif %} 
                 {% endif %}
-            </div>
-        </li>
-        {% endif %}
+            </li>
+            {% endif %}
+
         {% else %}
             <!-- If the user logged in is viewing their own profile and have no cheerups posted -->
             {% if current_user %}
