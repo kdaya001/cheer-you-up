@@ -47,7 +47,7 @@
         {% block top_content %} {% endblock top_content %}
 
         {% if user_id %}
-        <section class="main-content-container">
+        <section class="create-cheerup-container">
             <form id="create-cheerup-form" action="\cheerup\create" method="post">
                 <input
                     class="input"
@@ -57,8 +57,10 @@
                     maxlength="139"
                     required
                 />
-                <label for="visibility">Private</label>
-                <input type="checkbox" id="visibility" name="visibility">
+                <span id="visiblity-container">
+                    <label for="visibility">Make Private: </label>
+                    <input type="checkbox" id="visibility" name="visibility">
+                </span>
                 <button class="button" type="submit">Sumbit</button>
             </form>
         </section>
