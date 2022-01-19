@@ -71,7 +71,7 @@ ol li:after {
 }
 
 .button,
-.submit, 
+.submit,
 button {
     border-radius: 5em;
     color: #fff;
@@ -165,11 +165,11 @@ input {
     font-family: 'Rubik', sans-serif;
 }
 
-form {
+/* form {
     grid-row: 3 / span 1;
     grid-column: 1 / span 2;
     text-align: center;
-}
+} */
 
 .cheerup-heading, .cheerupers-heading {
     text-align: center;
@@ -202,4 +202,8 @@ form {
 .weather-icon {
     padding: 0;
     margin: 0;
+}
+
+#create-cheerup-form {
+    text-align: center;
 }
