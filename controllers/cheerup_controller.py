@@ -1,6 +1,6 @@
 from operator import ge
 from flask import Blueprint, request, redirect, render_template, session
-from models.cheerup import get_all_cheer_ups, insert_cheerup, get_cheerup, upvote_cheerup, update_voters, get_top_ten_cheer_ups, get_ten_most_recent_cheerups, delete_cheerup
+from models.cheerup import get_all_public_cheer_ups, insert_cheerup, get_cheerup, upvote_cheerup, update_voters, get_top_ten_public_cheer_ups, get_ten_most_recent_public_cheerups, delete_cheerup
 from helpers.weather import get_location, get_weather
 from models.user import update_score
 from helpers.sessions import get_session_user_id, get_session_avatar
@@ -11,13 +11,14 @@ cheerup_controller = Blueprint("cheerup_controller", __name__, template_folder="
 def cheerup_home():
     avatar = get_session_avatar()
     user_id = get_session_user_id()
-    top_ten_cheerups = get_top_ten_cheer_ups()
-    recent_ten_cheerups = get_ten_most_recent_cheerups()
+    top_ten_cheerups = get_top_ten_public_cheer_ups()
+    print(top_ten_cheerups[0])
+    recent_ten_cheerups = get_ten_most_recent_public_cheerups()
     return render_template('index.html', top_ten_cheerups=top_ten_cheerups, recent_ten_cheerups=recent_ten_cheerups, avatar = avatar, user_id = user_id)
 
 @cheerup_controller.route('/all-cheerups')
 def all_cheerups():
-    all_cheerups = get_all_cheer_ups()
+    all_cheerups = get_all_public_cheer_ups()
     user_id = get_session_user_id()
     avatar = get_session_avatar()
     return render_template('all-cheerups.html', cheerups=all_cheerups, user_id = user_id, avatar=avatar)
@@ -25,14 +26,19 @@ def all_cheerups():
 @cheerup_controller.route('/cheerup/create', methods=["POST"])
 def create_cheerup():
     cheerup = request.form.get('new_cheerup')
+
     user_id = get_session_user_id()
     visitor_ip = request.headers.get('X-Forwarded-For', request.remote_addr)
+    
     city = get_location(visitor_ip)
     weather = None
     if city != None: 
         weather = get_weather(city)
-    print(cheerup)
-    insert_cheerup(cheerup, user_id, weather)
+
+    public_visible = True
+    if request.form.get('visibility') == 'on':
+        public_visible = False
+    insert_cheerup(cheerup, user_id, weather, public_visible)
     return redirect('/')
 
 @cheerup_controller.route('/delete/<id>', methods=["POST"])

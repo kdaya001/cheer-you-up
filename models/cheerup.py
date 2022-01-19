@@ -1,22 +1,22 @@
 import database
 
-def get_all_cheer_ups():
-    results = database.sql_select('SELECT cheerups.cheerup, users.avatar_url, users.first_name, cheerups.rating, cheerups.id AS cheerupid, users.id AS userid, cheerups.voters, cheerups.weather FROM cheerups INNER JOIN users ON cheerups.user_id = users.id ORDER BY rating DESC', [])
+def get_all_public_cheer_ups():
+    results = database.sql_select('SELECT cheerups.cheerup, users.avatar_url, users.first_name, cheerups.rating, cheerups.id AS cheerupid, users.id AS userid, cheerups.voters, cheerups.weather FROM cheerups INNER JOIN users ON cheerups.user_id = users.id WHERE cheerups.public_visible = True ORDER BY rating DESC', [])
     return results
 
-def get_top_ten_cheer_ups():
-    results = database.sql_select('SELECT cheerups.cheerup, users.avatar_url, users.first_name, cheerups.rating, cheerups.id as cheerupid, users.id as userid, cheerups.voters, cheerups.weather FROM cheerups INNER JOIN users ON cheerups.user_id = users.id ORDER BY rating DESC LIMIT 10', [])
+def get_top_ten_public_cheer_ups():
+    results = database.sql_select('SELECT cheerups.cheerup, users.avatar_url, users.first_name, cheerups.rating, cheerups.id as cheerupid, users.id as userid, cheerups.voters, cheerups.weather FROM cheerups INNER JOIN users ON cheerups.user_id = users.id WHERE cheerups.public_visible = True ORDER BY rating DESC LIMIT 10', [])
     return results
 
-def get_ten_most_recent_cheerups():
-    results = database.sql_select('SELECT cheerups.cheerup, users.avatar_url, users.first_name, cheerups.rating, cheerups.id AS cheerupid, users.id AS userid, cheerups.voters, cheerups.weather FROM cheerups INNER JOIN users ON cheerups.user_id = users.id ORDER BY cheerups.timestamp DESC LIMIT 10', [])
+def get_ten_most_recent_public_cheerups():
+    results = database.sql_select('SELECT cheerups.cheerup, users.avatar_url, users.first_name, cheerups.rating, cheerups.id AS cheerupid, users.id AS userid, cheerups.voters, cheerups.weather FROM cheerups INNER JOIN users ON cheerups.user_id = users.id WHERE cheerups.public_visible = True ORDER BY cheerups.timestamp DESC LIMIT 10', [])
     return results
 
-def insert_cheerup(cheerup, user_id, weather):
+def insert_cheerup(cheerup, user_id, weather, public_visible):
     if weather == None:
-        database.sql_write('INSERT INTO cheerups (user_id, cheerup, rating, voters) VALUES (%s, %s, %s, %s)', [user_id, cheerup, 0, []])
+        database.sql_write('INSERT INTO cheerups (user_id, cheerup, rating, voters, public_visible) VALUES (%s, %s, %s, %s, %s)', [user_id, cheerup, 0, [], public_visible])
     else:
-        database.sql_write('INSERT INTO cheerups (user_id, cheerup, rating, weather, voters) VALUES (%s, %s, %s, %s, %s)', [user_id, cheerup, 0, weather, []])
+        database.sql_write('INSERT INTO cheerups (user_id, cheerup, rating, weather, voters, public_visible) VALUES (%s, %s, %s, %s, %s, %s)', [user_id, cheerup, 0, weather, [], public_visible])
 
 def get_cheerup(id):
     return database.sql_select('SELECT * FROM cheerups WHERE id = %s', [id])
