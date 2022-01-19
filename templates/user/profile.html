@@ -18,7 +18,13 @@
     <p>
         Total Cheerup Score: {{cheerups[0]['score']}}
     </p>
+    {% if current_user %}
+    <form action="/update-profile/{{user_id}}" methods="POST">
+        <button type="submit">Update Profile</button>
+    </form>
+    {% endif %}
 </section>
+
 
 {% if cheerups %}
 <section class="content-container">

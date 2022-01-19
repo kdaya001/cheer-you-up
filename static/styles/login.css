@@ -1,10 +1,17 @@
-.form_login, .form_signup {
+.form_login, .form_signup, .form_update {
     padding-top: 40px;
     background-color: #FFFFFF;
     margin: 0 auto;
-    width: 400px;
     border-radius: 1em;
     box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
+.form_login, .form_signup {
+    width: 400px;
+}
+
+.form_update {
+    width: 600px;
 }
 
 .form_login {

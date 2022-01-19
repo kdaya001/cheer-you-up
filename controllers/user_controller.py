@@ -1,6 +1,6 @@
 from flask import Blueprint, request, redirect, render_template, session
 import bcrypt
-from models.user import insert_user, get_all_users, get_all_user_cheerups
+from models.user import insert_user, get_all_users, get_all_user_cheerups, get_user_by_id, update_first_name, update_last_name, update_email
 from helpers.avatar import generate_avatar
 from helpers.sessions import get_session_avatar, get_session_user_id
 from helpers.jokes import get_rand_joke
@@ -57,3 +57,29 @@ def user_profile(id):
         return render_template('profile.html', cheerups = cheerups, user_id = current_user, avatar = avatar, current_user = False)
     else:
         return redirect('/')
+
+@user_controller.route('/update-profile/<id>', methods=["GET","POST"])
+def update_profile(id):
+    current_user_id = get_session_user_id()
+    if current_user_id == int(id):
+        if request.method == "GET":
+            user_details = get_user_by_id(id)
+            return render_template('update-profile.html', user_details=user_details[0])
+        elif request.method == "POST":
+            first_name = request.form.get('f_name')
+            if len(first_name) > 0:
+                update_first_name(first_name, id)
+            last_name = request.form.get('l_name')
+            if len(last_name) > 0:
+                update_last_name(last_name, id)
+            email = request.form.get('email')
+            if len(email) > 0:
+                update_email(email, id)
+
+            # original_password = get_password(id)
+            return redirect(f'/user-profile/{id}')
+            
+    else:
+        return redirect('/')
+
+        
