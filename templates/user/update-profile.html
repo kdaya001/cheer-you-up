@@ -5,6 +5,7 @@
 {% endblock additionalStyles %}
 
 {% block top_content %}
+
 <section class="content-container">
     <form action="/update-profile/{{user_details['id']}}" method="POST" class="form_update">
         <label for="f_name">First Name:</label>
@@ -28,5 +29,13 @@
         <input type="password" placeholder="Enter New Password" name="password_conf_2">
         <button class="submit" type="submit">Update</button>
     </form>
+
+    {% if error %}
+    <div class="all-container">
+        {{error}}
+    </div>
+    {% endif %}
 </section>
+
+
 {% endblock top_content %}

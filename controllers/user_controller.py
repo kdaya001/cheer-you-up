@@ -62,27 +62,44 @@ def user_profile(id):
 @user_controller.route('/update-profile/<id>', methods=["GET","POST"])
 def update_profile(id):
     current_user_id = get_session_user_id()
+    avatar = get_session_avatar()
+
     if current_user_id == int(id):
         if request.method == "GET":
             user_details = get_user_by_id(id)
-            return render_template('update-profile.html', user_details=user_details[0], user_id = current_user_id)
+            return render_template('update-profile.html', user_details=user_details[0], user_id = current_user_id, avatar=avatar)
         elif request.method == "POST":
+            user_details = get_user_by_id(id)
             first_name = request.form.get('f_name')
+        
             if len(first_name) > 0:
                 update_first_name(first_name, id)
             last_name = request.form.get('l_name')
+        
             if len(last_name) > 0:
                 update_last_name(last_name, id)
             email = request.form.get('email')
+        
             if len(email) > 0:
                 update_email(email, id)
 
-            original_password = get_password(id)[0]['password']
+            original_password = user_details[0]['password']
             entered_password = request.form.get('password_conf')
-            if check_password(original_password, entered_password):
-                if request.form.get('password_conf_1') == request.form.get('password_conf_2'):
-                    hashed_password = bcrypt.hashpw(request.form.get('password_conf_1').encode(), bcrypt.gensalt()).decode()
-                    update_password(hashed_password, id)
+            new_pass_1 = request.form.get('password_conf_1') 
+            new_pass_2 = request.form.get('password_conf_2')
+        
+            if len(entered_password) > 0:
+                if check_password(original_password, entered_password):
+                    if new_pass_1 == new_pass_2:
+                        hashed_password = bcrypt.hashpw(new_pass_1.encode(), bcrypt.gensalt()).decode()
+                        update_password(hashed_password, id)
+                    else:
+                        return render_template('update-profile.html', user_details=user_details[0], user_id = current_user_id, avatar=avatar, error="invalid password")
+                else:
+                    return render_template('update-profile.html', user_details=user_details[0], user_id = current_user_id, avatar=avatar, error="invalid password")
+            elif len(entered_password) == 0 and (len(new_pass_1) > 0 or len(new_pass_2) > 0):
+                return render_template('update-profile.html', user_details=user_details[0], user_id = current_user_id, avatar=avatar, error="invalid password")
+                
             return redirect(f'/user-profile/{id}')
     else:
         return redirect('/')

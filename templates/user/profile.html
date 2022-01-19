@@ -19,6 +19,11 @@
         Total Cheerup Score: {{cheerups[0]['score']}}
     </p>
     {% if current_user %}
+        {% if update_profile %}
+            {% for item in update_status %}
+            {{item}}
+            {% endfor %}
+        {% endif %}
     <form action="/update-profile/{{user_id}}" methods="POST">
         <button type="submit">Update Profile</button>
     </form>
