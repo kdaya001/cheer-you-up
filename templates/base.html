@@ -43,23 +43,24 @@
         </nav>
     </header>
     <main>
+
         {% block top_content %} {% endblock top_content %}
-        {% block main_content %}{% endblock main_content %}
-        
         {% if user_id %}
-            <section class="main-content-container">
-                <form action="\cheerup\create" method="post">
-                    <input
-                        class="input"
-                        type="text"
-                        placeholder="Add a cheerup"
-                        name="new_cheerup"
-                        required
-                    />
-                    <button class="button" type="submit">Sumbit</button>
-                </form>
-            </section>
+        <section class="main-content-container">
+            <form id="create-cheerup-form" action="\cheerup\create" method="post">
+                <input
+                    class="input"
+                    type="text"
+                    placeholder="Add a cheerup"
+                    name="new_cheerup"
+                    maxlength="139"
+                    required
+                />
+                <button class="button" type="submit">Sumbit</button>
+            </form>
+        </section>
         {% endif %}
+        {% block main_content %}{% endblock main_content %}
     </main>
     <footer>
         

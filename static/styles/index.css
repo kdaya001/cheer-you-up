@@ -14,6 +14,7 @@ ol li {
     margin: 0 auto;
     margin-bottom: 30px;
     width: 80%;
+    max-width: 1500px;
     border-radius: 1em;
 }
 
