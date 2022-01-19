@@ -1,6 +1,8 @@
+from tabnanny import check
 import bcrypt
 from flask import Blueprint, request, redirect, render_template, session
 from models.user import get_user_by_email
+from helpers.user import check_password
 
 session_controller = Blueprint("session_controller", __name__, template_folder="../templates/session")
 
@@ -20,7 +22,7 @@ def create_session():
         user_details = user_details[0]
     #check if the user has input both a username and password
     if username and password and user_details:
-        password_valid = bcrypt.checkpw(password.encode(), user_details['password'].encode())
+        password_valid = check_password(user_details['password'], password)
         
     if password_valid and username and password:
         session['user_id'] = user_details['id']
