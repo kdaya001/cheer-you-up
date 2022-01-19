@@ -36,6 +36,7 @@
     <ol>
         {% for cheerup in cheerups %}
         {% if cheerup['cheerup'] != None %}
+        {% if (cheerup['public_visible']) or (current_user) %}
         <li>
             <a href="/user-profile/{{cheerup['userid']}}">
                 <p class="first_name">
@@ -88,6 +89,7 @@
                 {% endif %}
             </div>
         </li>
+        {% endif %}
         {% else %}
             <!-- If the user logged in is viewing their own profile and have no cheerups posted -->
             {% if current_user %}
