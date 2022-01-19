@@ -55,6 +55,7 @@ MVP Relational Database Diagram
 * Allow users to follow other users cheerups!!
 * Allow public and private cheerups
 - [x] Display a cheeruper reptuation (i.e. score)
+- [x] Allow user to update their details (first name, last name, email address, password)
 
 ![Additional Features Relational Diagram](/static/images/readme/additional-features-db-diagram.png)
 
