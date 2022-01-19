@@ -86,20 +86,6 @@
 </section>
 {% endif %}
 
-{% if current_user %}
-<section class="post-content-container">
-    <form action="\cheerup\create" method="post">
-        <input
-            class="input"
-            type="text"
-            placeholder="Add a cheerup"
-            name="new_cheerup"
-            required
-        />
-        <button class="button" type="submit">Sumbit</button>
-    </form>
-</section>
-{% endif %}
 {% endblock main_content %}
 
 {% block javascript %}

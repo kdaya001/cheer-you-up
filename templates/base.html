@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cheer You Up</title>
+    <title>Three Cheers</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +25,7 @@
 <body>
     <header>
         <nav>
-            <h3 id="logo">Cheer You Up</h3>
+            <h3 id="logo">Three Cheers</h3>
             <ul class="nav-ul">
                 <li class="nav-li"><a href="/home">Home</a></li>
                 <li class="nav-li"><a href="/all-cheerups">All Cheerups</a></li>
@@ -45,9 +45,24 @@
     <main>
         {% block top_content %} {% endblock top_content %}
         {% block main_content %}{% endblock main_content %}
+        
+        {% if user_id %}
+            <section class="main-content-container">
+                <form action="\cheerup\create" method="post">
+                    <input
+                        class="input"
+                        type="text"
+                        placeholder="Add a cheerup"
+                        name="new_cheerup"
+                        required
+                    />
+                    <button class="button" type="submit">Sumbit</button>
+                </form>
+            </section>
+        {% endif %}
     </main>
     <footer>
-
+        
     </footer>
 
     {% block javascript %}

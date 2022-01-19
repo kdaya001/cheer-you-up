@@ -20,11 +20,12 @@
             <div class="user-details">
                 <p>Cheerup Score: {{cheerup['rating']}}</p>
                 {% if cheerup['weather'] %}
-                <p>{{cheerup['first_name']}}'s weather: 
+                <p>It was 
                     <img
                         class="weather-icon"
                         src="http://openweathermap.org/img/wn/{{cheerup['weather']}}.png"
                     />
+                    when {{cheerup['first_name']}}'s posted this.
                 </p>
                 {% endif %} 
                 {% if user_id %} 
@@ -62,20 +63,7 @@
 </section>
 {% endif %} 
 
-{% if user_id %}
-<section class="main-content-container">
-    <form action="\cheerup\create" method="post">
-        <input
-            class="input"
-            type="text"
-            placeholder="Add a cheerup"
-            name="new_cheerup"
-            required
-        />
-        <button class="button" type="submit">Sumbit</button>
-    </form>
-</section>
-{% endif %}
+
 </div>
 {% endblock main_content %}
 

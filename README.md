@@ -17,10 +17,10 @@ tbc
 
 
 ## Technical Requirements:
-- [] **Have at *least* 2 tables** (more if they make sense) – one of them should represent the people using your application (users).
-- [] **Include sign up/log in functionality (if it makes sense)**, with encrypted passwords & an authorization flow
-- [] **Modify data in the database** There should be ways for users to add/change some data in the database (it's ok if only admins can make changes).
-- [] Have **semantically clean HTML and CSS**
+- [x] **Have at *least* 2 tables** (more if they make sense) – one of them should represent the people using your application (users).
+- [x] **Include sign up/log in functionality (if it makes sense)**, with encrypted passwords & an authorization flow
+- [x] **Modify data in the database** There should be ways for users to add/change some data in the database (it's ok if only admins can make changes).
+- [x] Have **semantically clean HTML and CSS**
 - [] **Be deployed online** and accessible to the public
 
 ## Technology Used
