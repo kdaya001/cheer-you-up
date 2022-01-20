@@ -68,11 +68,11 @@
             <p>Cheerup Score: {{cheerup['rating']}}</p>
             
             {% if cheerup['weather'] %}
-                <p>This was posted from {{cheerup['city']}} where the weather was 
-                    <img class="weather-icon"
-                        src="http://openweathermap.org/img/wn/{{cheerup['weather']}}.png"
-                    /> 
-                </p>
+            <p>This was posted from {{cheerup['city']}} where the weather was 
+                <img class="weather-icon"
+                    src="http://openweathermap.org/img/wn/{{cheerup['weather']}}.png"
+                /> 
+            </p>
             {% endif %} 
             
             {% if current_user %} 

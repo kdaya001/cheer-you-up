@@ -30,15 +30,17 @@ def create_cheerup():
     visitor_ip = request.headers.get('X-Forwarded-For', request.remote_addr)
     
     city = get_location(visitor_ip)
-    weather = None
+    weather_icon = None
+
+    city = "Sydney"
 
     if city != None: 
-        weather = get_weather(city)
+        weather_icon = get_weather(city)
 
     public_visible = True
     if request.form.get('visibility') == 'on':
         public_visible = False
-    insert_cheerup(cheerup, user_id, weather['icon'], weather['city'], public_visible)
+    insert_cheerup(cheerup, user_id, weather_icon, city, public_visible)
     return redirect('/')
 
 @cheerup_controller.route('/delete/<id>', methods=["POST"])

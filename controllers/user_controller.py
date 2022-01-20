@@ -46,8 +46,11 @@ def user_profile(id):
     #get currently logged in user
     current_user = get_session_user_id()
     #if the user is not trying to access their own profile, query the database for the users cheerups
+    print(id)
     cheerups = get_all_user_cheerups(id)
     avatar = get_session_avatar()
+    
+    print(cheerups)
 
     #check if a user is signed in
     if current_user:
