@@ -2,16 +2,6 @@ const cheerups_list = document.getElementsByClassName('cheerup');
 
 function moreDetails(event) {
     let userDetails = "";
-
-    console.log(event)
-
-    // if(event.target.parentElement.children.length > 4) {
-    //     userDetails = event.target.parentElement.children[5];
-    // }
-    // else {
-    //     userDetails = event.target.parentElement.children[3];
-    // }
-
     userDetails = event.target.parentElement.children[1]
 
     console.log(event.target.parentElement.children.length)

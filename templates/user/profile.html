@@ -34,11 +34,14 @@
 {% if cheerups %}
 <section class="content-container">
     <table class="cheerup-table">
+        {% if cheerup| length > 0 %}
         <tr class="cheerup-table-heading">
             <th>User</th>
             <th>Cheerup</th>
             <th>More information</th>
         </tr>
+        {% endif %}
+
         {% for cheerup in cheerups %}
         {% if cheerup['cheerup'] != None %}
         {% if (cheerup['public_visible']) or (current_user) %}

@@ -1,4 +1,4 @@
-const logo = document.getElementById('logo');
+const logo = document.getElementById('company-name-logo');
 
 let counter = 0;
 
