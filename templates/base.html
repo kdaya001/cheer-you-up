@@ -27,7 +27,12 @@
         <nav>
             <h3 id="logo">Three Cheers</h3>
             <ul class="nav-ul">
-                <li class="nav-li"><a href="/home">Home</a></li>
+                <li class="nav-li" id="home-text-li"><a href="/home">Home</a></li>
+                <li class="nav-li" id="home-icon-li">
+                    <a href="/home" id="home-icon-link">
+                        <img src="/static/images/home-icon.png" alt="home" id="home-icon"/>
+                    </a>
+                </li>
                 <li class="nav-li"><a href="/all-cheerups">All Cheerups</a></li>
                 <li class="nav-li"><a href="/all-cheerupers">Cheerupers</a></li>
                 {% if user_id %}

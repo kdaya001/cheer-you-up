@@ -17,6 +17,7 @@ def create_session():
     username = request.form.get('username')
     password = request.form.get('password')
     password_valid = False
+    print(username)
 
     user_details = get_user_by_email(username)
     if user_details:

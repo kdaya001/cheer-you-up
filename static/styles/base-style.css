@@ -20,6 +20,16 @@ body {
     padding-top: 15px;
 }
 
+#home-icon {
+    max-width: 25px;
+    max-height: 25px;
+    
+}
+
+#home-icon-li {
+    display: none;
+}
+
 form select {
     padding: 10px 20px;
 }
@@ -138,7 +148,6 @@ input {
     background-color: rgb(137, 199, 189);
 }
 
-/* .main-content-container,  */
 .post-content-container, .cheerup-content-container {
     margin: 0 auto;
     width: 80%;
@@ -210,9 +219,27 @@ input {
     #visiblity-container {
         white-space: nowrap;
     }
+
+    #home-icon-li {
+        display: block;
+        margin-top: 10px;
+        margin-left: 5px;
+    }
+
+    #home-text-li {
+        display: none;
+    }
 }
 
 .weather-icon {
     padding: 0;
     margin: 0;
+}
+.alt-text-container {
+    padding: 20px;
+    text-align: center;
+}
+
+#home-icon-link {
+    padding: 0px;
 }
