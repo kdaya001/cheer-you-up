@@ -163,12 +163,6 @@ input {
     font-family: 'Rubik', sans-serif;
 }
 
-/* form {
-    grid-row: 3 / span 1;
-    grid-column: 1 / span 2;
-    text-align: center;
-} */
-
 .cheerup-heading, .cheerupers-heading {
     text-align: center;
     font-family: 'Rubik', sans-serif;
@@ -195,6 +189,7 @@ input {
 .create-cheerup-container {
     margin: 0 auto;
     max-width: 90%;
+    margin-bottom: 20px;
 }
 
 @media only screen and (max-width: 900px) {

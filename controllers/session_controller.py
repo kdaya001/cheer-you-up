@@ -3,6 +3,7 @@ import bcrypt
 from flask import Blueprint, request, redirect, render_template, session
 from models.user import get_user_by_email
 from helpers.user import check_password
+from helpers.sessions import get_session_avatar, get_session_user_id, get_session_first_name
 
 session_controller = Blueprint("session_controller", __name__, template_folder="../templates/session")
 
@@ -34,7 +35,13 @@ def create_session():
 
 @session_controller.route('/sessions/destroy')
 def destroy_session():
-    session.pop('user_id')
-    session.pop('first_name')
-    session.pop('avatar')
+    if get_session_user_id():
+        session.pop('user_id')
+    
+    if get_session_first_name():
+        session.pop('first_name')
+    
+    if get_session_avatar():
+        session.pop('avatar')
+
     return redirect('/')
