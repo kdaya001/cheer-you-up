@@ -14,10 +14,9 @@ def loginpage():
 # login '/sessions/create
 @session_controller.route('/sessions/create', methods=["POST"])
 def create_session():
-    username = request.form.get('username')
+    username = request.form.get('username').lower()
     password = request.form.get('password')
     password_valid = False
-    print(username)
 
     user_details = get_user_by_email(username)
     if user_details:

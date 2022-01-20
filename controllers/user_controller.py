@@ -24,7 +24,7 @@ def show_cheerupers():
 def create_user():
     first_name = request.form.get('f_name')
     last_name = request.form.get('l_name')
-    email = request.form.get('email')
+    email = request.form.get('email').lower()
 
     if(validate_email_exists(email)):
         hashed_password = None
@@ -46,11 +46,8 @@ def user_profile(id):
     #get currently logged in user
     current_user = get_session_user_id()
     #if the user is not trying to access their own profile, query the database for the users cheerups
-    print(id)
     cheerups = get_all_user_cheerups(id)
     avatar = get_session_avatar()
-    
-    print(cheerups)
 
     #check if a user is signed in
     if current_user:

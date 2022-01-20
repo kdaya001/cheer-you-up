@@ -1,3 +1,4 @@
+from distutils.log import error
 from flask import Flask, render_template, redirect
 import psycopg2
 import os
@@ -18,7 +19,7 @@ app.config['SECRET_KEY'] = SECRET_KEY
 
 @app.route('/')
 def index():
-    return redirect('home')
+    return redirect('/home')
 
 
 app.register_blueprint(cheerup_controller)

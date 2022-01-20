@@ -1,4 +1,3 @@
-from operator import ge
 from flask import Blueprint, request, redirect, render_template, session
 from models.cheerup import get_all_public_cheer_ups, insert_cheerup, get_cheerup, upvote_cheerup, update_voters, get_top_ten_public_cheer_ups, get_ten_most_recent_public_cheerups, delete_cheerup, update_cheerup_to_private, update_cheerup_to_public
 from helpers.weather import get_location, get_weather
