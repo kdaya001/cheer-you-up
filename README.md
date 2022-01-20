@@ -23,6 +23,17 @@ tbc
 - [x] Have **semantically clean HTML and CSS**
 - [] **Be deployed online** and accessible to the public
 
+
+## Necessary Deliverables
+- [x] A working full-stack application, built by you, hosted somewhere on the internet
+- [x] A link to your hosted working app in the URL section of your GitHub repo
+- [x] A git repository hosted on GitHub, with a link to your hosted project, and frequent commits dating back to the very beginning of the project. Commit early, commit often.
+- [x] A README.md file with explanations of the technologies used, the approach taken, installation instructions, unsolved problems, etc.
+
+### Optional extras
+- [x] Use your JavaScript skills to make a smooth UI, e.g. validating your forms before submitting.
+- [x] Interact with an external JSON API (check the weather, get book/movie info, space pictures, send SMSs, etc.)
+
 ## Technology Used
 * Python
 * HTML
@@ -49,10 +60,10 @@ MVP Relational Database Diagram
 
 ## Additional features if time permits:
 - [x] [API] Provide the weather for each user based off the users IP address
-* Allocate current mood when posting a cheerup
-* [API] Allocate a song to their profile ('currently on repeat')
+- [ ] Allocate current mood when posting a cheerup
+- [ ] [API] Allocate a song to their profile ('currently on repeat')
 - [x] [API] Add a random joke of the day as an easter egg somewhere on a page 
-* Allow users to follow other users cheerups!!
+- [ ] Allow users to follow other users cheerups!!
 - [x] Allow public and private cheerups
 - [x] Display a cheeruper reptuation (i.e. score)
 - [x] Allow user to update their details (first name, last name, email address, password)
