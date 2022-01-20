@@ -43,34 +43,17 @@ form select {
     font-size: 0.8em;
 }
 
-.button,
-.submit,
-button {
-    border-radius: 5em;
-    color: #fff;
-    background: linear-gradient(to right, #9c27b0, #e040fb);
-    border: 0;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    font-family: sans-serif;
-    font-size: 13px;
-    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
-    margin: 5px 20px;
-}
-
 input {
     width: 76%;
     font-weight: bold;
     letter-spacing: 1px;
     background: rgba(136, 126, 126, 0.04);
     padding: 10px 20px;
-    border-radius: 20px;
+    border-radius: 10px;
     box-sizing: border-box;
     border: 2px solid rgba(0, 0, 0, 0.02);
     text-align: center;
-    background-color : #d1d1d1; 
+    background-color : #E0F7FA; 
 }
 
 .nav-avatar, #logo {
@@ -102,6 +85,7 @@ nav {
     display: flex;
     justify-content: space-between;
     border-bottom: .5px solid rgb(182, 182, 182);
+    margin-bottom: 15px;
 }
 
 .first_name {
@@ -125,7 +109,6 @@ nav {
 .all-container {
     background-color: #ffffff;
     margin: 0 auto;
-    margin-bottom: 30px;
     padding-bottom: 30px;
     width: 80%;
     border-radius: 1em;
@@ -143,7 +126,6 @@ nav {
     margin: 0 auto;
     max-width: 90%;
     margin-top: 10px;
-    background-color: wheat;
     padding-bottom: 20px;
 }
 
@@ -192,6 +174,36 @@ a p:hover {
 
 .cheerup-table {
     width: 100%;
+}
+
+.user-information {
+    text-align: center;
+}
+
+button {
+    border-radius: 10px;
+    border: none;
+    padding: 0 10px;
+    background-color: #E0F7FA;
+}
+
+button:hover {
+    background-color: wheat;
+}
+
+.submit, button {
+    border-radius: 5em;
+    color: #fff;
+    background: linear-gradient(to right, #30a5ad, #b3d1cd);
+    border: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-family: sans-serif;
+    font-size: 13px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+    margin: 5px 20px;
 }
 
 @media only screen and (max-width: 900px) {

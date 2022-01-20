@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block additionalStyles %}
-<link href="/static/styles/profile.css" rel="stylesheet">
+<link href="/static/styles/profile-style.css" rel="stylesheet">
 {% endblock additionalStyles %}
 
 {% block main_content %}
@@ -12,27 +12,32 @@
 </aside>
 {% endif %}
 
-<section class="user-container">
-    <h2>{{cheerups[0]['first_name']}}'s Profile</h2>
-    <p>Summary:</p>
-    <p>
-        Total Cheerup Score: {{cheerups[0]['score']}}
-    </p>
-    {% if current_user %}
-        {% if update_profile %}
-            {% for item in update_status %}
-            {{item}}
-            {% endfor %}
-        {% endif %}
-    <form action="/update-profile/{{user_id}}" methods="POST">
-        <button type="submit">Update Profile</button>
-    </form>
-    {% endif %}
+<section class="all-container">
+    <h2 class="cheerup-heading">{{cheerups[0]['first_name']}}'s Profile</h2>
+    <table class="cheerup-table">
+        <tr>
+            <p class="user-detail-tr">
+                Total Cheerup Score: {{cheerups[0]['score']}}
+            </p>
+        </tr>
+        <tr class="user-detail-tr">
+            {% if current_user %}
+            {% if update_profile %}
+                {% for item in update_status %}
+                {{item}}
+                {% endfor %}
+            {% endif %}
+            <form action="/update-profile/{{user_id}}" methods="POST">
+                <button type="submit">Update Profile</button>
+            </form>
+            {% endif %}
+        </tr>
+    </table>
 </section>
 
 
 {% if cheerups %}
-<section class="content-container">
+<section class="all-container">
     <table class="cheerup-table">
         {% if cheerup| length > 0 %}
         <tr class="cheerup-table-heading">

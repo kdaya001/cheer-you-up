@@ -5,7 +5,7 @@
 <link href="/static/styles/update-profle-style.css" rel="stylesheet">
 {% endblock additionalStyles %}
 
-{% block top_content %}
+{% block main_content %}
 
 <section class="content-container">
     <form action="/update-profile/{{user_details['id']}}" method="POST" class="form_update">
@@ -38,5 +38,4 @@
     {% endif %}
 </section>
 
-
-{% endblock top_content %}
+{% endblock main_content %}
