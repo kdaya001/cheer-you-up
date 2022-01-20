@@ -241,4 +241,8 @@ button:hover {
     .nav-button {
         padding-top: 7.5px;
     }
+
+    table > * {
+        font-size: .7em;
+    }
 }
