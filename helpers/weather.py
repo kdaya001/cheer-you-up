@@ -21,6 +21,5 @@ def get_weather(city):
         'icon': icon,
         'city': city
     }
-    
+
     return weather
-    # return json['weather'][0]['icon']
