@@ -13,12 +13,9 @@ body {
     height: 35px;
 }
 
-#logo {
-    font-family: 'Parisienne', cursive;
-    font-size: 3rem;
-    text-align: center;
-    padding-top: 15px;
-    margin-bottom: 10px;
+#company-name {
+    font-family: 'Arvo', serif;
+    text-align: left;
 }
 
 #home-icon {
@@ -111,22 +108,6 @@ input {
     background-color : #d1d1d1; 
 }
 
-.nav-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    background-color: rgb(102, 48, 202);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 99;
-}
-
-.nav-li {
-    float: left;
-}
-
-.nav-li a,
 .avatar-li a {
     display: block;
     color: white;
@@ -135,29 +116,43 @@ input {
     text-decoration: none;
 }
 
-.nav-li a:hover:not(.active) {
-    background-color: #111;
+.nav-avatar, #logo {
+    width: 30px;
+    height: 30px;
+}
+
+#logo-table-heading {
+    padding-right: 0px;
+}
+
+#logo {
+    border-radius: 5px;
+    padding-left: 0px;
 }
 
 .nav-avatar {
-    width: 20px;
-    height: 20px;
+    margin: 10px;
+    padding: 5px;
+    background-color: rgb(99, 202, 202);
+    border-radius: 40px;
 }
 
 .avatar-li {
     float: right;
-    background-color: rgb(137, 199, 189);
+    background-color: rgb(87, 160, 148);
 }
 
-.post-content-container, .cheerup-content-container {
+nav {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: .5px solid black;
+}
+
+.cheerup-content-container {
     margin: 0 auto;
     width: 80%;
     max-width: 1500px;
     border-radius: 1em;
-    grid-row: 2 / span 1;
-    grid-column: 1 / span 3;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
 }
 
 .cheerup {
@@ -173,10 +168,18 @@ input {
     font-family: 'Rubik', sans-serif;
 }
 
-.cheerup-heading, .cheerupers-heading {
-    text-align: center;
+.cheerup-heading, .cheerupers-heading, .cheerup-table-heading {
     font-family: 'Rubik', sans-serif;
-    font-size: 2em;
+    padding-left: 15px;
+    padding-top: 15px;
+}
+
+.cheerup-heading, .cheerup-heading {
+    font-size: 1.5em;
+}
+
+.cheerup-table-heading {
+    background-color: #E0F7FA;
 }
 
 .all-container {
@@ -212,7 +215,33 @@ input {
 }
 
 #home-icon-link {
-    padding: 0px;
+    display: none;
+}
+
+th {
+    text-align: left;
+    padding: 10px;
+}
+
+tr td {
+    border-bottom: 1px solid rgb(190, 190, 190);
+    padding: 10px 15px;
+}
+
+table {
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+table * {
+    text-decoration: none;
+    color: black;
+}
+
+
+
+.cheerup-table {
+    width: 100%;
 }
 
 @media only screen and (max-width: 900px) {
@@ -234,10 +263,8 @@ input {
         white-space: nowrap;
     }
 
-    #home-icon-li {
+    #home-icon-link {
         display: block;
-        margin-top: 10px;
-        margin-left: 5px;
     }
 
     #home-text-li {
