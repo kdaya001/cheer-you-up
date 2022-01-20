@@ -1,6 +1,7 @@
 body {
     box-sizing: border-box;
     margin: auto 0;
+    font-family: 'Rubik', sans-serif;
 }
 
 .avatar {
@@ -121,6 +122,10 @@ input {
     height: 30px;
 }
 
+#company-name-logo {
+    padding-right: 15px;
+}
+
 #logo-table-heading {
     padding-right: 0px;
 }
@@ -145,13 +150,11 @@ input {
 nav {
     display: flex;
     justify-content: space-between;
-    border-bottom: .5px solid black;
+    border-bottom: .5px solid rgb(182, 182, 182);
 }
 
 .cheerup-content-container {
     margin: 0 auto;
-    width: 80%;
-    max-width: 1500px;
     border-radius: 1em;
 }
 
@@ -197,12 +200,15 @@ nav {
     text-align: center;
     display: flex;
     justify-content: center;
+    padding-top: 40px;
 }
 
 .create-cheerup-container {
     margin: 0 auto;
     max-width: 90%;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    background-color: wheat;
+    padding-bottom: 20px;
 }
 
 .weather-icon {
@@ -216,6 +222,8 @@ nav {
 
 #home-icon-link {
     display: none;
+    padding: 15px 0px;
+
 }
 
 th {
@@ -238,7 +246,13 @@ table * {
     color: black;
 }
 
+a p:hover {
+    color: teal;
+}
 
+.nav-button:hover {
+    background-color: wheat;
+}
 
 .cheerup-table {
     width: 100%;
@@ -265,9 +279,18 @@ table * {
 
     #home-icon-link {
         display: block;
+        color: black;
     }
 
     #home-text-li {
         display: none;
+    }
+
+    #company-name-logo {
+        padding-right: 0px;
+    }
+
+    .nav-button {
+        padding-top: 7.5px;
     }
 }

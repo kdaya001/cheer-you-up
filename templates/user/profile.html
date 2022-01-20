@@ -33,64 +33,71 @@
 
 {% if cheerups %}
 <section class="content-container">
-    <ol>
+    <table class="cheerup-table">
+        <tr class="cheerup-table-heading">
+            <th>User</th>
+            <th>Cheerup</th>
+            <th>More information</th>
+        </tr>
         {% for cheerup in cheerups %}
         {% if cheerup['cheerup'] != None %}
         {% if (cheerup['public_visible']) or (current_user) %}
-        <li>
-            <a href="/user-profile/{{cheerup['userid']}}">
-                <p class="first_name">
-                    <img class="avatar" src="{{cheerup['avatar_url']}}" />
-                    {{cheerup['first_name']}}
-                </p>
-            </a>
-            <!-- If the logged in user is viewing their own profile, allow them to delete posts -->
-            {% if current_user %}
-                <!-- If the post is currently private let the user change to public -->
-                {% if cheerup['public_visible'] %}
-                <form class="visibility-form" action="/update-visibility/{{cheerup['cheerupid']}}" method="POST">
-                    <button type="submit" value="Submit">Make Private</button>
-                </form>
-                {% else %}
-                <form class="visibility-form" action="/update-visibility/{{cheerup['cheerupid']}}" method="POST">
-                    <button type="submit" value="Submit">Make Public</button>
+        <tr>
+            <td>
+                <a href="/user-profile/{{cheerup['userid']}}">
+                    <p class="first_name">
+                        <img class="avatar" src="{{cheerup['avatar_url']}}" />
+                        {{cheerup['first_name']}}
+                    </p>
+                </a>
+                <!-- If the logged in user is viewing their own profile, allow them to delete posts -->
+                {% if current_user %}
+                    <!-- If the post is currently private let the user change to public -->
+                    {% if cheerup['public_visible'] %}
+                    <form class="visibility-form" action="/update-visibility/{{cheerup['cheerupid']}}" method="POST">
+                        <button type="submit" value="Submit">Make Private</button>
+                    </form>
+                    {% else %}
+                    <form class="visibility-form" action="/update-visibility/{{cheerup['cheerupid']}}" method="POST">
+                        <button type="submit" value="Submit">Make Public</button>
+                    </form>
+                    {% endif %}
+
+                <form id="delete-form" action="/delete/{{cheerup['cheerupid']}}" method="POST">
+                    <button type="submit" value="Submit">Delete</button>
                 </form>
                 {% endif %}
-
-            <form id="delete-form" action="/delete/{{cheerup['cheerupid']}}" method="POST">
-                <button type="submit" value="Submit">Delete</button>
-            </form>
-            {% endif %}
-
-            <div class="cheerup">{{cheerup['cheerup']}}</div>
-            <span class="find-out-more">+</span>
-            <div class="user-details">
-            <p>Cheerup Score: {{cheerup['rating']}}</p>
-            
-            {% if cheerup['weather'] %}
-            <p>This was posted from {{cheerup['city']}} where the weather was 
-                <img class="weather-icon"
-                    src="http://openweathermap.org/img/wn/{{cheerup['weather']}}.png"
-                /> 
-            </p>
-            {% endif %} 
-            
-            {% if current_user %} 
-                {% if user_id != cheerup['userid'] %} 
-                    {% if user_id not in cheerup['voters'] %}
-                        <form
-                            action="/upvote/{{cheerup['cheerupid']}}"
-                            method="POST"
-                        >
-                            <button class="button" type="submit">
-                                Upvote +1
-                            </button>
-                        </form>
+            </td>
+            <td>{{cheerup['cheerup']}}</td>
+            <td>
+                <span class="find-out-more">+</span>
+                <div class="user-details">
+                <p>Cheerup Score: {{cheerup['rating']}}</p>
+                
+                {% if cheerup['weather'] %}
+                <p>This was posted from {{cheerup['city']}} where the weather was 
+                    <img class="weather-icon"
+                        src="http://openweathermap.org/img/wn/{{cheerup['weather']}}.png"
+                    /> 
+                </p>
+                {% endif %} 
+                
+                {% if current_user %} 
+                    {% if user_id != cheerup['userid'] %} 
+                        {% if user_id not in cheerup['voters'] %}
+                            <form
+                                action="/upvote/{{cheerup['cheerupid']}}"
+                                method="POST"
+                            >
+                                <button class="button" type="submit">
+                                    Upvote +1
+                                </button>
+                            </form>
                         {% endif %} 
                     {% endif %} 
-                {% endif %}
-            </li>
-            {% endif %}
+                {% endif %}                
+            </td>
+        {% endif %}
 
         {% else %}
             <!-- If the user logged in is viewing their own profile and have no cheerups posted -->

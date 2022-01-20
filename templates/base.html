@@ -29,25 +29,49 @@
                         <img src="/static/images/logo.png" alt="logo" id="logo">
                     </th>
                     <th id="company-name"><span id="company-name-logo">Three Cheers</span></th>
-                    <th id="home-text-li"><a href="/home">Home</a></th>
-                    <th id="home-icon-link">
+                    <th id="home-text-li" class="nav-button">
+                        <a href="/home">
+                            <p>Home</p>
+                        </a>
+                    </th>
+                    <th id="home-icon-link" class="nav-button">
                         <a href="/home" id="home-icon-link">
                             <img src="/static/images/home-icon.png" alt="home" id="home-icon"/>
                         </a>
                     </th>
-                    <th><a href="/all-cheerups">All Cheerups</a></th>
-                    <th><a href="/all-cheerupers">Cheerupers</a></th>
+                    <th class="nav-button">
+                        <a href="/all-cheerups">
+                            <p>All Cheerups</p>
+                        </a>
+                    </th>
+                    <th class="nav-button">
+                        <a href="/all-cheerupers">
+                            <p>Cheerupers</p>
+                        </a>
+                    </th>
 
                     {% if user_id %}
-                    <th><a href="/sessions/destroy">Logout</a></th>
+                    <th class="nav-button">
+                        <a href="/sessions/destroy">
+                            <p>Logout</p>
+                        </a>
+                    </th>
                     {% else %}
-                    <th><a href="/signup">Signup</a></th>
-                    <th><a href="/login">Login</a></th>
+                    <th class="nav-button">
+                        <a href="/signup">
+                            <p>Signup</p>
+                        </a>
+                    </th>
+                    <th class="nav-button">
+                        <a href="/login">
+                            <p>Login</p>
+                        </a>
+                    </th>
                     {% endif %}
                 </tr>
             </table>
             {% if avatar %}
-            <a href="/user-profile/{{user_id}}">
+            <a href="/user-profile/{{user_id}}" class="nav-button">
                 <img class="nav-avatar" src={{avatar}}>
             </a>
             {% endif %}
