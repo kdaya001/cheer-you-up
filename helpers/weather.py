@@ -15,4 +15,12 @@ def get_weather(city):
     api_url = f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={WEATHER_API_KEY}'
     response = requests.get(api_url)
     json = response.json()
-    return json['weather'][0]['icon']
+    icon = json['weather'][0]['icon']
+    
+    weather = {
+        'icon': icon,
+        'city': city
+    }
+    
+    return weather
+    # return json['weather'][0]['icon']

@@ -25,3 +25,5 @@ ALTER TABLE cheerups
 ADD COLUMN timestamp timestamp default current_timestamp;
 
 alter table cheerups add column public_visible boolean;
+
+alter table cheerups add city VARCHAR(50);

@@ -30,7 +30,7 @@
                 <div class="user-details">
                     <p>Cheerup Score: {{cheerup['rating']}}</p>
                     {% if cheerup['weather'] %}
-                    <p>{{cheerup['first_name']}}'s weather:
+                    <p>This was posted from {{cheerup['city']}} where the weather was 
                         <img class="weather-icon"
                             src="http://openweathermap.org/img/wn/{{cheerup['weather']}}.png"
                         /> 
@@ -74,10 +74,10 @@
                 <div class="user-details">
                     <p>Cheerup Score: {{cheerup['rating']}}</p>
                     {% if cheerup['weather'] %}
-                    <p>{{cheerup['first_name']}}'s weather:
+                    <p>This was posted from {{cheerup['city']}} where the weather was 
                         <img class="weather-icon"
                             src="http://openweathermap.org/img/wn/{{cheerup['weather']}}.png"
-                        />
+                        /> 
                     </p>
                     {% endif %} 
                     {% if user_id %} 

@@ -107,5 +107,3 @@ def update_profile(id):
             return redirect(f'/user-profile/{id}')
     else:
         return redirect('/')
-
-        
