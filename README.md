@@ -100,11 +100,11 @@ Note: This design changed (for the home screen specifically) half way though the
 
 ## Creative Commons Attribution:
 ### Avatars:
-Title: Big Smile
-Author: Ashley Seo
-Source: https://www.figma.com/community/file/881358461963645496
+- Title: Big Smile
+- Author: Ashley Seo 
+- Source: https://www.figma.com/community/file/881358461963645496
 
 ### Weather API:
-Title: Open Weather Map 
-Author: OpenWeather
-Source: https://openweathermap.org/
+- Title: Open Weather Map  
+- Author: OpenWeather 
+- Source: https://openweathermap.org/
