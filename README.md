@@ -6,11 +6,15 @@ Deployment: [here](https://secret-wildwood-49670.herokuapp.com/)
 
 ## Project: 
 
+This is Project 2 for the General Assembly Immersive course. This is the end of unit project for Backend where we were tasked to implement a working full-stack application using Python (and the Flask Web Framework) and CRUD principles using a Postgres Database.
+
+### Project Idea:
+
 The world is a depressing place.
 
 Your task is to create an app that will allow people to create and share "cheerups" through the `Cheer you up` web app - happy little quips to brighten other people's' days. Cheerups will be small - limited to 139 characters. Members will be able to promote Cheerups that they like and maybe even boost the reputation of the Cheerupper.
 
-Basic Logic:
+### Basic Logic:
 * Home (main cheerup view of Top 10 most recent and Top 10 most popular)
 * Login (validation check)
 * Sign Up:
@@ -40,7 +44,7 @@ Basic Logic:
 * Session storage
 * Model View Controller Design
 
-# Project Technical Requirements
+# Project Requirements
 ## Technical Requirements:
 - [x] **Have at *least* 2 tables** (more if they make sense) – one of them should represent the people using your application (users).
 - [x] **Include sign up/log in functionality (if it makes sense)**, with encrypted passwords & an authorization flow
