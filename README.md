@@ -80,7 +80,7 @@ MVP Relational Database Diagram:
 ![MVP Relational Diagram](/static/images/readme/actual-erd.png)
 
 
-## Additional features if time permits:
+## Future Features:
 - [x] [API] Provide the weather for each user based off the users IP address
 - [ ] Allocate current mood when posting a cheerup
 - [ ] [API] Allocate a song to their profile ('currently on repeat')
@@ -89,9 +89,22 @@ MVP Relational Database Diagram:
 - [x] Allow public and private cheerups
 - [x] Display a cheeruper reptuation (i.e. score)
 - [x] Allow user to update their details (first name, last name, email address, password)
+- [ ] Password strength checker for signup
 
 
 ## Wireframe Design:
 Note: This design changed (for the home screen specifically) half way though the project due to unappealing UI
 
 ![General Design](/static/images/readme/general-design.png)
+
+
+## Creative Commons Attribution:
+### Avatars:
+Title: Big Smile
+Author: Ashley Seo
+Source: https://www.figma.com/community/file/881358461963645496
+
+### Weather API:
+Title: Open Weather Map 
+Author: OpenWeather
+Source: https://openweathermap.org/
