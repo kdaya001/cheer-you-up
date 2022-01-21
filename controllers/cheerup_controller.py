@@ -34,10 +34,7 @@ def create_cheerup():
     
     city = get_location(visitor_ip)
     weather_icon = None
-
-    #TODO REMOVE LATER
-    city = 'Sydney'
-
+    
     if city != None: 
         weather_icon = get_weather(city)
 
