@@ -206,6 +206,19 @@ button:hover {
     margin: 5px 20px;
 }
 
+.status-container {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}
+
 @media only screen and (max-width: 900px) {
     .cheerup-content-container {
         display: flex;

@@ -1,6 +1,6 @@
-from flask import Blueprint, request, redirect, render_template, session
+from flask import Blueprint, request, redirect, render_template, session, url_for
 import bcrypt
-from models.user import insert_user, get_all_users, get_all_user_cheerups, get_user_by_id, update_first_name, update_last_name, update_email, get_password, update_password
+from models.user import insert_user, get_all_users, get_all_user_cheerups, get_user_by_id, update_first_name, update_last_name, update_email, update_password
 from helpers.avatar import generate_avatar
 from helpers.sessions import get_session_avatar, get_session_user_id
 from helpers.jokes import get_rand_joke
@@ -11,7 +11,9 @@ user_controller = Blueprint("user_controller", __name__, template_folder="../tem
 
 @user_controller.route('/signup')
 def signup():
-    return render_template('signup.html')
+    status_message = request.args.get('status_message')
+    status = request.args.get('status')
+    return render_template('signup.html', status_message=status_message, status=status)
 
 @user_controller.route('/all-cheerupers')
 def show_cheerupers():
@@ -35,11 +37,11 @@ def create_user():
             avatar = generate_avatar()
             session['avatar'] = avatar
             insert_user(first_name, last_name, email, hashed_password, avatar)
-            return redirect('/login')
+            return redirect(url_for('session_controller.login_page', status_message='Successfully created account', status='success'))
         else:
-            return redirect('/signup')
+            return redirect(url_for('user_controller.signup', status_message='Failed to make account, try again', status='error'))
     else:
-        return redirect('/signup')
+        return redirect(url_for('user_controller.signup', status_message='This email address is already registered', status='error'))
 
 @user_controller.route('/user-profile/<id>')
 def user_profile(id):
@@ -49,17 +51,21 @@ def user_profile(id):
     cheerups = get_all_user_cheerups(id)
     avatar = get_session_avatar()
 
+    # Get status code if it exists
+    status_message = request.args.get('status_message')
+    status = request.args.get('status')
+
     #check if a user is signed in
     if current_user:
         #if the user is signed, check if the currently signed in user matches the user they're trying to view
         if current_user == int(id):
             #if the signed in user is trying to access their own profile, redirect to /my-profile route
             easter_egg = get_rand_joke()
-            return render_template('profile.html', cheerups = cheerups, user_id = current_user, avatar = avatar, current_user = True, easter_egg=easter_egg)
+            return render_template('profile.html', cheerups = cheerups, user_id = current_user, avatar = avatar, current_user = True, easter_egg=easter_egg, status=status, status_message=status_message)
 
     #check if the user is trying to access a profile that doesn't exist (e.g. manual URL change)
     if len(cheerups) > 0:
-        return render_template('profile.html', cheerups = cheerups, user_id = current_user, avatar = avatar, current_user = False)
+        return render_template('profile.html', cheerups = cheerups, user_id = current_user, avatar = avatar, current_user = False,)
     else:
         return redirect('/')
 
@@ -98,12 +104,12 @@ def update_profile(id):
                         hashed_password = bcrypt.hashpw(new_pass_1.encode(), bcrypt.gensalt()).decode()
                         update_password(hashed_password, id)
                     else:
-                        return render_template('update-profile.html', user_details=user_details[0], user_id = current_user_id, avatar=avatar, error="invalid password")
+                        return render_template('update-profile.html', user_details=user_details[0], user_id = current_user_id, avatar=avatar, status_message="Invalid entry. Please try again.", status="error")
                 else:
-                    return render_template('update-profile.html', user_details=user_details[0], user_id = current_user_id, avatar=avatar, error="invalid password")
+                    return render_template('update-profile.html', user_details=user_details[0], user_id = current_user_id, avatar=avatar, status_message="Invalid entry. Please try again.", status="error")
             elif len(entered_password) == 0 and (len(new_pass_1) > 0 or len(new_pass_2) > 0):
-                return render_template('update-profile.html', user_details=user_details[0], user_id = current_user_id, avatar=avatar, error="invalid password")
-                
-            return redirect(f'/user-profile/{id}')
+                return render_template('update-profile.html', user_details=user_details[0], user_id = current_user_id, avatar=avatar, status_message="Invalid entry. Please try again.", status="error")
+
+            return redirect(url_for('user_controller.user_profile', id=id,status_message="Successfully updated your profile", status="success"))
     else:
         return redirect('/')

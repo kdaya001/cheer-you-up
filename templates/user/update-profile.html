@@ -8,6 +8,12 @@
 {% block main_content %}
 
 <section class="content-container">
+    {% if error %}
+    <div class="error-container">
+        <p class="error">{{error}}</p>
+    </div>
+    {% endif %}
+
     <form action="/update-profile/{{user_details['id']}}" method="POST" class="form_update">
         <label for="f_name">First Name:</label>
         <br/>
@@ -30,12 +36,6 @@
         <input type="password" placeholder="Enter New Password" name="password_conf_2">
         <button class="submit" type="submit">Update</button>
     </form>
-
-    {% if error %}
-    <div class="all-container">
-        {{error}}
-    </div>
-    {% endif %}
 </section>
 
 {% endblock main_content %}

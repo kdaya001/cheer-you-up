@@ -98,6 +98,18 @@
             </form>
         </section>
         {% endif %}
+
+        <section>
+            {% if status_message and status %}
+            <div class="status-container">
+                {% if 'success' in status %}
+                    <p class="success">{{status_message}}</p>
+                {% elif 'error' in status %}
+                    <p class="error">{{status_message}}</p>
+                {% endif %}
+            </div>
+            {% endif %}    
+        </section>
         
         {% block main_content %}{% endblock main_content %}
     </main>
