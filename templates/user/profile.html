@@ -33,7 +33,7 @@
             {% endif %}
         </tr>
     </table>
-</ssection>
+</section>
 
 
 {% if cheerups %}
@@ -41,17 +41,11 @@
     <h3 class="cheerup-heading">Cheerups</h3>
     {% if cheerups[0]['cheerup'] != None %}
     <table class="cheerup-table">
-        {% if cheerups[0] | length > 0 and cheerups[0]['public_visible'] == True %}
+        {% if cheerups[0] | length > 0 %}
         <tr class="cheerup-table-heading">
             <th>User</th>
             <th>Cheerup</th>
             <th>More information</th>
-        </tr>
-        {% else %}
-        <tr>
-            <section class="alt-text-container">
-                <p>{{cheerups[0]['first_name']}} does not have any cheerups posted right now</p>
-            </section>
         </tr>
         {% endif %}
 
