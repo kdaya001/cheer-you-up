@@ -33,7 +33,7 @@ form select {
 
 .user-details {
     display: none;
-    align-items: flex-end;
+    align-items: flex-start;
     flex-direction: column;
 }
 
@@ -217,6 +217,14 @@ button:hover {
 
 .success {
     color: green;
+}
+
+.cheerup {
+    text-align: center;
+}
+
+.user-details-container {
+    width: 25%;
 }
 
 @media only screen and (max-width: 900px) {

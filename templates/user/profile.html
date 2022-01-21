@@ -67,7 +67,7 @@
                         <button type="submit" value="Submit">Make Private</button>
                     </form>
                     {% else %}
-                    <p>This post is currently Private</p>
+                    <p>This post is currently</p>
                     <form class="visibility-form" action="/update-visibility/{{cheerup['cheerupid']}}" method="POST">
                         <button type="submit" value="Submit">Make Public</button>
                     </form>
@@ -90,7 +90,7 @@
                 </div>
 
             </td>
-            <td>
+            <td class="user-details-container">
                 <span class="find-out-more">+</span>
                 <div class="user-details">
                 <p>Cheerup Score: {{cheerup['rating']}}</p>
