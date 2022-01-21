@@ -19,7 +19,7 @@ body {
 }
 
 #company-name-logo {
-    color: #5ac8fa;
+    color: #32BDFD;
 }
 
 #home-icon-li {
@@ -158,7 +158,7 @@ table * {
 }
 
 a p:hover {
-    color: #5ac8fa;
+    color: #32BDFD;
 }
 
 .nav-button:hover {
@@ -178,7 +178,7 @@ button {
     border-radius: 10px;
     border: none;
     padding: 0 10px;
-    background-color: #5ac8fa;
+    background-color: #32BDFD;
 }
 
 button:hover {
@@ -189,7 +189,7 @@ button:hover {
 button {
     border-radius: 5em;
     color: #fff;
-    background: #5ac8fa;
+    background: #32BDFD;
     border: 0;
     padding-left: 40px;
     padding-right: 40px;
