@@ -1,4 +1,4 @@
-from flask import Blueprint, request, redirect, render_template, session
+from flask import Blueprint, request, redirect, render_template, session, url_for
 from models.cheerup import get_all_public_cheer_ups, insert_cheerup, get_cheerup, upvote_cheerup, update_voters, get_top_ten_public_cheer_ups, get_ten_most_recent_public_cheerups, delete_cheerup, update_cheerup_to_private, update_cheerup_to_public, update_cheerup
 from helpers.weather import get_location, get_weather
 from models.user import update_score
@@ -10,9 +10,13 @@ cheerup_controller = Blueprint("cheerup_controller", __name__, template_folder="
 def cheerup_home():
     avatar = get_session_avatar()
     user_id = get_session_user_id()
+
+    status_message = request.args.get('status_message')
+    status = request.args.get('status')
+
     top_ten_cheerups = get_top_ten_public_cheer_ups()
     recent_ten_cheerups = get_ten_most_recent_public_cheerups()
-    return render_template('index.html', top_ten_cheerups=top_ten_cheerups, recent_ten_cheerups=recent_ten_cheerups, avatar = avatar, user_id = user_id)
+    return render_template('index.html', top_ten_cheerups=top_ten_cheerups, recent_ten_cheerups=recent_ten_cheerups, avatar = avatar, user_id = user_id, status=status, status_message=status_message)
 
 @cheerup_controller.route('/all-cheerups')
 def all_cheerups():
@@ -38,7 +42,7 @@ def create_cheerup():
     if request.form.get('visibility') == 'on':
         public_visible = False
     insert_cheerup(cheerup, user_id, weather_icon, city, public_visible)
-    return redirect('/')
+    return redirect(url_for('cheerup_controller.cheerup_home', status="success", status_message="Successfully created cheerup"))
 
 @cheerup_controller.route('/delete/<id>', methods=["POST"])
 def remove_cheerup(id):
@@ -84,4 +88,6 @@ def update_visibility(id):
 def edit_cheerup(id):
     cheerup_edit = request.form.get(f'edited-cheerup-{id}')
     update_cheerup(id, cheerup_edit)
-    return redirect(request.referrer)
+    current_user = get_session_user_id()
+
+    return redirect(url_for('user_controller.user_profile', id=current_user, status="success", status_message="Successfully edited cheerup"))
