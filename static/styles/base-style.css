@@ -18,10 +18,6 @@ body {
     text-align: left;
 }
 
-#home-icon {
-    max-width: 25px;
-    max-height: 25px;
-}
 
 #home-icon-li {
     display: none;
@@ -249,11 +245,6 @@ button:hover {
 
     #visiblity-container {
         white-space: nowrap;
-    }
-
-    #home-icon-link {
-        display: block;
-        color: black;
     }
 
     #home-text-li {

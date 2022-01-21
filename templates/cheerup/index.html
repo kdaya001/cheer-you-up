@@ -1,5 +1,17 @@
 {% extends 'base.html' %} 
-    
+
+{% block additionalStyles %}
+<link href="/static/styles/index-style.css" rel="stylesheet">
+{% endblock additionalStyles %}
+
+{% block top_content %}
+<section class="alt-text-container index-banner">
+    <h3>The world is a depressing place. Help make someones day by posting a "cheerup"</h3>
+    <p>A cheerup is a positive quip to help brighten peoples day.</p>
+</section>
+{% endblock top_content %}
+
+
 {% block main_content %} 
 {% if top_ten_cheerups %}
 <section class="cheerup-content-container">

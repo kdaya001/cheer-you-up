@@ -1,0 +1,6 @@
+.index-banner {
+    background-image: linear-gradient(to left, violet, indigo, lightblue, teal, orange, red);   
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 20px;
+}
