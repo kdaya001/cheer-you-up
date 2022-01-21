@@ -25,7 +25,9 @@ Basic Logic:
     * Users can view other peoples profiles and:
         * View publically posted cheerups
         * View the Total Cheerup score of the user
-* Cheerups can be posted for every page other than login, signup and 'Cheerupers'
+* Cheerups can be posted on every page other than login, signup and 'Cheerupers'
+* Cheerups can only be posted by logged in users and the posting cheerup form is hidden when users are not logged in
+* Show a success or error message on the screen when certain functions occur (e.g. successfull login, unsuccessful login, cheerup creation, successful signup, email already in use error, etc)
 * A page to view all users and their scores in list view, sorted from most popular to least popular
 * Posting from a public IP address will invoke a call to the [IP Geolocation API](http://ip-api.com/) to confirm approximate location. A call to [Open Weather Map API](https://api.openweathermap.org/data/2.5) is then invoked to confirm the current weather in that location. This is displayed as additional information to users
 
@@ -85,7 +87,7 @@ MVP Relational Database Diagram:
 - [x] Allow user to update their details (first name, last name, email address, password)
 
 
-# UI Design:
+# Wireframe Design:
 Note: This design changed (for the home screen specifically) half way though the project due to unappealing UI
 
-![General Design](/static/images/readme/general-design.png =100x20) 
+![General Design](/static/images/readme/general-design.png) 
