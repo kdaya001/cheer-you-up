@@ -1,20 +1,19 @@
 body {
     box-sizing: border-box;
-    font-family: 'Outfit'
+    font-family: 'Outfit', sans-serif;
 }
 
 .avatar {
-    width: 25px;
-    height: 25px;
+    width: 48px;
+    height: 48px;
 }
 
 .weather-icon {
-    width: 35px;
-    height: 35px;
+    width: 48px;
+    height: 48px;
 }
 
 #company-name {
-    font-family: 'Arvo', serif;
     text-align: left;
 }
 
@@ -35,8 +34,7 @@ form select {
 
 .user-details > * {
     margin: 0;
-    font-family: 'Rubik', sans-serif;
-    font-size: 0.8em;
+    font-size: 0.em;
 }
 
 input {
@@ -53,8 +51,8 @@ input {
 }
 
 .nav-avatar, #logo {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
 }
 
 #company-name-logo {
@@ -89,12 +87,11 @@ nav {
 }
 
 .cheerup-heading, .cheerupers-heading, .cheerup-table-heading {
-    font-family: 'Rubik', sans-serif;
-    padding-left: 15px;
-    padding-top: 15px;
+    padding-left: 24px;
+    padding-top: 20px;
 }
 
-.cheerup-heading {
+.cheerup-heading, .cheerup-heading {
     font-size: 1.5em;
 }
 
@@ -142,7 +139,7 @@ nav {
 
 th {
     text-align: left;
-    padding: 10px;
+    padding: 12px;
 }
 
 tr td {
@@ -173,7 +170,8 @@ a p:hover {
 }
 
 .user-information {
-    text-align: center;
+    text-align: left;
+    padding-left: 32px;
 }
 
 button {
@@ -216,7 +214,7 @@ button:hover {
 }
 
 .cheerup {
-    text-align: center;
+    text-align: left;
     hyphens: auto;
     overflow-wrap: break-word;
 }
@@ -228,15 +226,6 @@ button:hover {
 #footer-banner {
     text-align: right;
     margin-right: 30px;
-}
-
-#footer-banner {
-    text-align: center;
-}
-
-#footer-banner p {
-    font-size: 10px;
-    color: gray;
 }
 
 @media only screen and (max-width: 900px) {
