@@ -82,7 +82,7 @@
                 {% endif %}
             </td>
             <td>
-                <p class="shown-cheerup">{{cheerup['cheerup']}}</p>
+                <p class="cheerup">{{cheerup['cheerup']}}</p>
                 <div class="edit-cheerup">
                     <form action="/edit-cheerup/{{cheerup['cheerupid']}}" method="POST">
                         <textarea name="edited-cheerup-{{cheerup['cheerupid']}}">{{cheerup['cheerup']}}</textarea>
