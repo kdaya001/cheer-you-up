@@ -1,5 +1,5 @@
 from flask import Blueprint, request, redirect, render_template, session
-from models.cheerup import get_all_public_cheer_ups, insert_cheerup, get_cheerup, upvote_cheerup, update_voters, get_top_ten_public_cheer_ups, get_ten_most_recent_public_cheerups, delete_cheerup, update_cheerup_to_private, update_cheerup_to_public
+from models.cheerup import get_all_public_cheer_ups, insert_cheerup, get_cheerup, upvote_cheerup, update_voters, get_top_ten_public_cheer_ups, get_ten_most_recent_public_cheerups, delete_cheerup, update_cheerup_to_private, update_cheerup_to_public, update_cheerup
 from helpers.weather import get_location, get_weather
 from models.user import update_score
 from helpers.sessions import get_session_user_id, get_session_avatar
@@ -30,8 +30,6 @@ def create_cheerup():
     
     city = get_location(visitor_ip)
     weather_icon = None
-
-    city = "Sydney"
 
     if city != None: 
         weather_icon = get_weather(city)
@@ -81,3 +79,9 @@ def update_visibility(id):
             return redirect(request.referrer)
     else:
         return redirect('/')
+
+@cheerup_controller.route('/edit-cheerup/<id>', methods=["POST"])
+def edit_cheerup(id):
+    cheerup_edit = request.form.get(f'edited-cheerup-{id}')
+    update_cheerup(id, cheerup_edit)
+    return redirect(request.referrer)

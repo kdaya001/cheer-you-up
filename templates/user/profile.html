@@ -70,13 +70,24 @@
                         <button type="submit" value="Submit">Make Public</button>
                     </form>
                     {% endif %}
-
+                    
+                    
+                <button value="edit" class="edit-button">Edit</button>
                 <form id="delete-form" action="/delete/{{cheerup['cheerupid']}}" method="POST">
                     <button type="submit" value="Submit">Delete</button>
                 </form>
                 {% endif %}
             </td>
-            <td>{{cheerup['cheerup']}}</td>
+            <td>
+                <p class="shown-cheerup">{{cheerup['cheerup']}}</p>
+                <div class="edit-cheerup">
+                    <form action="/edit-cheerup/{{cheerup['cheerupid']}}" method="POST">
+                        <textarea name="edited-cheerup-{{cheerup['cheerupid']}}">{{cheerup['cheerup']}}</textarea>
+                        <button value="submit">Save Changes</button>
+                    </form>
+                </div>
+
+            </td>
             <td>
                 <span class="find-out-more">+</span>
                 <div class="user-details">
@@ -103,7 +114,8 @@
                             </form>
                         {% endif %} 
                     {% endif %} 
-                {% endif %}                
+                {% endif %}      
+                </div>          
             </td>
         {% endif %}
 
@@ -117,7 +129,6 @@
             {% endif %}
         {% endif %}
         {% endfor %}
-    </ol>
 </section>
 
 <!-- If the user is viewing someone elses profile and the user their viewing does not have any posts and has never posted. -->

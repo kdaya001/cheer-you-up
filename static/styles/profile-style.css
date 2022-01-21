@@ -24,3 +24,31 @@
 .user-detail-tr {
     padding-left: 10px;
 }
+
+.edit-cheerup {
+    display: none;
+}
+
+textarea {
+    overflow: auto;
+    width: 400px;
+    height: 100px;
+    resize: none;
+    border: solid lightgray 1px;
+}
+
+.edit-cheerup form {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-cheerup {
+    justify-content: center;
+}
+
+@media only screen and (max-width: 900px) {
+    textarea {
+        width: 100px;
+        height: 150px;
+    }
+}

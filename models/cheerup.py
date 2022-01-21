@@ -36,4 +36,7 @@ def update_cheerup_to_private(id):
     database.sql_write('UPDATE cheerups SET public_visible = False WHERE id = %s', [id])
 
 def update_cheerup_to_public(id):
-        database.sql_write('UPDATE cheerups SET public_visible = True WHERE id = %s', [id])
+    database.sql_write('UPDATE cheerups SET public_visible = True WHERE id = %s', [id])
+
+def update_cheerup(id, edited_cheerup):
+    database.sql_write('UPDATE cheerups set cheerup = %s WHERE id = %s', [edited_cheerup, id])

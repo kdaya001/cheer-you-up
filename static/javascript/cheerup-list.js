@@ -13,7 +13,28 @@ function moreDetails(event) {
     }
 }
 
+function editCheerup(event) {
+    let cheerup = event.target.parentNode.parentNode.childNodes[3].children[0];
+    let edit = event.target.parentNode.parentNode.childNodes[3].children[1];
+    console.log(event)
+
+    if (cheerup.style.display == 'block') {
+        cheerup.style.display = 'none';
+        edit.style.display = 'flex'
+        event.target.innerText = 'Cancel Edit' 
+    } else {
+        edit.style.display = 'none';
+        event.target.innerText = 'Edit' 
+        cheerup.style.display = 'block';
+    }
+}
+
 let moreDetailsButtons = document.getElementsByClassName('find-out-more');
 for (buttons of moreDetailsButtons) {
     buttons.addEventListener('click', moreDetails);
+}
+
+let editButtons = document.getElementsByClassName('edit-button');
+for (button of editButtons) {
+    button.addEventListener('click', editCheerup);
 }
