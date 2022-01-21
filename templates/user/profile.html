@@ -119,7 +119,9 @@
                 {% endif %}      
                 </div>          
             </td>
+        </tr>
         {% endif %}
+        </table>
 
         {% else %}
             <!-- If the user logged in is viewing their own profile and have no cheerups posted -->
@@ -129,7 +131,7 @@
             {% else %}
             <p>{{cheerup['first_name']}} does not have any cheerups posted right now</p>
             {% endif %}
-        {% endif %}
+        {% endif %} 
         {% endfor %}
 </section>
 

@@ -227,6 +227,11 @@ button:hover {
     width: 25%;
 }
 
+#footer-banner {
+    text-align: right;
+    margin-right: 30px;
+}
+
 @media only screen and (max-width: 900px) {
     .cheerup-content-container {
         display: flex;

@@ -10,10 +10,6 @@ The world is a depressing place.
 
 Your task is to create an app that will allow people to create and share "cheerups" through the `Cheer you up` web app - happy little quips to brighten other people's' days. Cheerups will be small - limited to 139 characters. Members will be able to promote Cheerups that they like and maybe even boost the reputation of the Cheerupper.
 
-## Setup instructions
-```
-tbc
-```
 
 
 ## Technical Requirements:
