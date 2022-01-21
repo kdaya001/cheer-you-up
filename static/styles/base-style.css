@@ -228,6 +228,15 @@ button:hover {
     margin-right: 30px;
 }
 
+#footer-banner {
+    text-align: center;
+}
+
+#footer-banner p {
+    font-size: 10px;
+    color: gray;
+}
+
 @media only screen and (max-width: 900px) {
     .cheerup-content-container {
         display: flex;
