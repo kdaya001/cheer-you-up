@@ -1,6 +1,7 @@
 body {
     box-sizing: border-box;
     font-family: 'Outfit', sans-serif;
+    background: rgba(90, 200, 250, 0.08);
 }
 
 .avatar {
@@ -16,7 +17,6 @@ body {
 #company-name {
     text-align: left;
 }
-
 
 #home-icon-li {
     display: none;
@@ -34,7 +34,7 @@ form select {
 
 .user-details > * {
     margin: 0;
-    font-size: 0.em;
+    font-size: 0em;
 }
 
 input {
@@ -47,10 +47,11 @@ input {
     box-sizing: border-box;
     border: 2px solid rgba(0, 0, 0, 0.02);
     text-align: center;
-    background-color : #E0F7FA; 
+    background-color: #e0f7fa;
 }
 
-.nav-avatar, #logo {
+.nav-avatar,
+#logo {
     width: 40px;
     height: 40px;
 }
@@ -78,7 +79,7 @@ input {
 nav {
     display: flex;
     justify-content: space-between;
-    border-bottom: .5px solid rgb(182, 182, 182);
+    border-bottom: 0.5px solid rgb(182, 182, 182);
     margin-bottom: 15px;
 }
 
@@ -86,17 +87,20 @@ nav {
     text-decoration: underline;
 }
 
-.cheerup-heading, .cheerupers-heading, .cheerup-table-heading {
+.cheerup-heading,
+.cheerupers-heading,
+.cheerup-table-heading {
     padding-left: 24px;
     padding-top: 20px;
 }
 
-.cheerup-heading, .cheerup-heading {
+.cheerup-heading,
+.cheerup-heading {
     font-size: 1.5em;
 }
 
 .cheerup-table-heading {
-    background-color: #E0F7FA;
+    background-color: rgba(90, 200, 250, 0.3);
 }
 
 .all-container {
@@ -158,11 +162,11 @@ table * {
 }
 
 a p:hover {
-    color: teal;
+    color: #5ac8fa;
 }
 
 .nav-button:hover {
-    background-color: wheat;
+    background-color: rgba(90, 200, 250, 0.2);
 }
 
 .cheerup-table {
@@ -178,17 +182,18 @@ button {
     border-radius: 10px;
     border: none;
     padding: 0 10px;
-    background-color: #E0F7FA;
+    background-color: #5ac8fa;
 }
 
 button:hover {
     background-color: wheat;
 }
 
-.submit, button {
+.submit,
+button {
     border-radius: 5em;
     color: #fff;
-    background: linear-gradient(to right, #30a5ad, #b3d1cd);
+    background: #5ac8fa;
     border: 0;
     padding-left: 40px;
     padding-right: 40px;
@@ -242,7 +247,7 @@ button:hover {
         display: flex;
         flex-direction: column;
     }
-    
+
     button {
         margin: auto 0;
     }
@@ -269,7 +274,7 @@ button:hover {
     }
 
     table > * {
-        font-size: .7em;
+        font-size: 0.7em;
     }
 
     button {
