@@ -38,8 +38,10 @@
 
 {% if cheerups %}
 <section class="all-container">
+    <h2 class="cheerup-heading">Cheerups</h2>
+    {% if cheerups[0]['cheerup'] != None %}
     <table class="cheerup-table">
-        {% if cheerup| length > 0 %}
+        {% if cheerups[0] | length > 0 %}
         <tr class="cheerup-table-heading">
             <th>User</th>
             <th>Cheerup</th>
@@ -48,7 +50,6 @@
         {% endif %}
 
         {% for cheerup in cheerups %}
-        {% if cheerup['cheerup'] != None %}
         {% if (cheerup['public_visible']) or (current_user) %}
         <tr>
             <td>
@@ -90,6 +91,7 @@
                 </div>
 
             </td>
+
             <td class="user-details-container">
                 <span class="find-out-more">+</span>
                 <div class="user-details">
@@ -119,20 +121,22 @@
                 {% endif %}      
                 </div>          
             </td>
+
         </tr>
         {% endif %}
-        </table>
-
-        {% else %}
-            <!-- If the user logged in is viewing their own profile and have no cheerups posted -->
+        {% endfor %}
+    </table>
+{% else %}
+    <section class="alt-text-container">
+        <!-- If the user logged in is viewing their own profile and have no cheerups posted -->
             {% if current_user %}
             <p>You do not have any cheerups</p>
             <!-- If the user is viewing someone elses profile and the user their viewing does not have any posts. This is only for users that have previously posted and have scores, etc -->
             {% else %}
-            <p>{{cheerup['first_name']}} does not have any cheerups posted right now</p>
+            <p>{{cheerups[0]['first_name']}} does not have any cheerups posted right now</p>
             {% endif %}
         {% endif %} 
-        {% endfor %}
+    </section>
 </section>
 
 <!-- If the user is viewing someone elses profile and the user their viewing does not have any posts and has never posted. -->
