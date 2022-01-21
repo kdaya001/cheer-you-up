@@ -16,9 +16,9 @@ function moreDetails(event) {
 function editCheerup(event) {
     let cheerup = event.target.parentNode.parentNode.childNodes[3].children[0];
     let edit = event.target.parentNode.parentNode.childNodes[3].children[1];
-    console.log(event)
+    console.log(cheerup.style.display)
 
-    if (cheerup.style.display == 'block') {
+    if (cheerup.style.display != 'none') {
         cheerup.style.display = 'none';
         edit.style.display = 'flex'
         event.target.innerText = 'Cancel Edit' 
