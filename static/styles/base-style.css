@@ -262,4 +262,8 @@ button:hover {
     table > * {
         font-size: .7em;
     }
+
+    button {
+        margin: 4px 0;
+    }
 }
