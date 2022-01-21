@@ -81,6 +81,18 @@
 
         {% block top_content %} {% endblock top_content %}
 
+        <section>
+            {% if status_message and status %}
+            <div class="status-container">
+                {% if 'success' in status %}
+                    <p class="success">{{status_message}}</p>
+                {% elif 'error' in status %}
+                    <p class="error">{{status_message}}</p>
+                {% endif %}
+            </div>
+            {% endif %}    
+        </section>
+
         {% if user_id %}
         <section class="all-container" id="create-cheerup-container">
             <form id="create-cheerup-form" action="\cheerup\create" method="post">
@@ -100,18 +112,6 @@
             </form>
         </section>
         {% endif %}
-
-        <section>
-            {% if status_message and status %}
-            <div class="status-container">
-                {% if 'success' in status %}
-                    <p class="success">{{status_message}}</p>
-                {% elif 'error' in status %}
-                    <p class="error">{{status_message}}</p>
-                {% endif %}
-            </div>
-            {% endif %}    
-        </section>
         
         {% block main_content %}{% endblock main_content %}
     </main>
@@ -119,7 +119,7 @@
     
     <footer>
         <aside id="footer-banner">
-            <p>Powered by <a href="https://dashboard.heroku.com/">Heroku</a></p>
+            <p>Powered by <a href="https://heroku.com/">Heroku</a></p>
             <p>Code base: <a href=https://github.com/kdaya001/cheer-you-up>GitHub</a></p>
         </aside>
     </footer>

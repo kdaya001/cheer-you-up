@@ -91,7 +91,7 @@ MVP Relational Database Diagram:
 - [x] Allow user to update their details (first name, last name, email address, password)
 
 
-# Wireframe Design:
+## Wireframe Design:
 Note: This design changed (for the home screen specifically) half way though the project due to unappealing UI
 
-![General Design](/static/images/readme/general-design.png) 
+![General Design](/static/images/readme/general-design.png)

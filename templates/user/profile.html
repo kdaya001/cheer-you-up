@@ -41,11 +41,17 @@
     <h2 class="cheerup-heading">Cheerups</h2>
     {% if cheerups[0]['cheerup'] != None %}
     <table class="cheerup-table">
-        {% if cheerups[0] | length > 0 %}
+        {% if cheerups[0] | length > 0 and cheerups[0]['public_visible'] == True %}
         <tr class="cheerup-table-heading">
             <th>User</th>
             <th>Cheerup</th>
             <th>More information</th>
+        </tr>
+        {% else %}
+        <tr>
+            <section class="alt-text-container">
+                <p>{{cheerups[0]['first_name']}} does not have any cheerups posted right now</p>
+            </section>
         </tr>
         {% endif %}
 
@@ -68,7 +74,7 @@
                         <button type="submit" value="Submit">Make Private</button>
                     </form>
                     {% else %}
-                    <p>This post is currently</p>
+                    <p>This post is currently Private</p>
                     <form class="visibility-form" action="/update-visibility/{{cheerup['cheerupid']}}" method="POST">
                         <button type="submit" value="Submit">Make Public</button>
                     </form>
@@ -121,7 +127,6 @@
                 {% endif %}      
                 </div>          
             </td>
-
         </tr>
         {% endif %}
         {% endfor %}
