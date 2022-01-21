@@ -73,14 +73,16 @@ def upvote(id):
 @cheerup_controller.route('/update-visibility/<id>', methods=["POST"])
 def update_visibility(id):
     cheerup = get_cheerup(id)
+    current_user = get_session_user_id()
+
     if cheerup:
         current_visibility_status = cheerup[0]['public_visible']
         if current_visibility_status:
             update_cheerup_to_private(id)
-            return redirect(request.referrer)
+            return redirect(url_for('user_controller.user_profile', id=current_user, status="success", status_message="Successfully updated post to Private"))
         else:
             update_cheerup_to_public(id)
-            return redirect(request.referrer)
+            return redirect(url_for('user_controller.user_profile', id=current_user, status="success", status_message="Successfully updated post to Public"))
     else:
         return redirect('/')
 
