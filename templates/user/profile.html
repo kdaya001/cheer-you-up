@@ -105,7 +105,7 @@
                 </p>
                 {% endif %} 
                 
-                {% if current_user %} 
+                {% if not current_user %} 
                     {% if user_id != cheerup['userid'] %} 
                         {% if user_id not in cheerup['voters'] %}
                             <form
