@@ -1,5 +1,3 @@
-from tabnanny import check
-import bcrypt
 from flask import Blueprint, request, redirect, render_template, session
 from models.user import get_user_by_email
 from helpers.user import check_password

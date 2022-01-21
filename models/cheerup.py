@@ -5,7 +5,7 @@ def get_all_public_cheer_ups():
     return results
 
 def get_top_ten_public_cheer_ups():
-    results = database.sql_select('SELECT cheerups.cheerup, users.avatar_url, users.first_name, cheerups.rating, cheerups.id as cheerupid, users.id as userid, cheerups.voters, cheerups.weather, cheerups.city FROM cheerups INNER JOIN users ON cheerups.user_id = users.id WHERE cheerups.public_visible = True ORDER BY rating DESC LIMIT 10', [])
+    results = database.sql_select('SELECT cheerups.cheerup, users.avatar_url, users.first_name, cheerups.rating, cheerups.id AS cheerupid, users.id AS userid, cheerups.voters, cheerups.weather, cheerups.city FROM cheerups INNER JOIN users ON cheerups.user_id = users.id WHERE cheerups.public_visible = True ORDER BY rating DESC LIMIT 10', [])
     return results
 
 def get_ten_most_recent_public_cheerups():
