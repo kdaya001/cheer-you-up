@@ -32,11 +32,6 @@ form select {
     flex-direction: column;
 }
 
-.user-details > * {
-    margin: 0;
-    font-size: 0em;
-}
-
 input {
     width: 80%;
     font-size: 1em;
