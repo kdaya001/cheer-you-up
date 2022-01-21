@@ -1,6 +1,6 @@
 from flask import Blueprint, request, redirect, render_template, session, url_for
 import bcrypt
-from models.user import insert_user, get_all_users, get_all_user_cheerups, get_user_by_id, update_first_name, update_last_name, update_email, update_password
+from models.user import insert_user, get_all_users, get_all_user_cheerups, get_user_by_id, update_first_name, update_last_name, update_email, update_password, get_all_user_public_cheerups
 from helpers.avatar import generate_avatar
 from helpers.sessions import get_session_avatar, get_session_user_id
 from helpers.jokes import get_rand_joke
@@ -49,6 +49,7 @@ def user_profile(id):
     current_user = get_session_user_id()
     #if the user is not trying to access their own profile, query the database for the users cheerups
     cheerups = get_all_user_cheerups(id)
+    public_cheerups = get_all_user_public_cheerups(id)
     avatar = get_session_avatar()
 
     # Get status code if it exists
@@ -61,11 +62,11 @@ def user_profile(id):
         if current_user == int(id):
             #if the signed in user is trying to access their own profile, redirect to /my-profile route
             easter_egg = get_rand_joke()
-            return render_template('profile.html', cheerups = cheerups, user_id = current_user, avatar = avatar, current_user = True, easter_egg=easter_egg, status=status, status_message=status_message)
+            return render_template('profile.html', cheerups = cheerups, user_id = current_user, avatar = avatar, current_user = True, easter_egg=easter_egg, status=status, status_message=status_message, public_cheerups=public_cheerups)
 
     #check if the user is trying to access a profile that doesn't exist (e.g. manual URL change)
     if len(cheerups) > 0:
-        return render_template('profile.html', cheerups = cheerups, user_id = current_user, avatar = avatar, current_user = False,)
+        return render_template('profile.html', cheerups = cheerups, user_id = current_user, avatar = avatar, current_user = False, public_cheerups=public_cheerups)
     else:
         return redirect('/')
 

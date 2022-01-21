@@ -39,7 +39,7 @@
 {% if cheerups %}
 <section class="all-container">
     <h3 class="cheerup-heading">Cheerups</h3>
-    {% if cheerups[0]['cheerup'] != None %}
+    {% if cheerups[0]['cheerup'] != None and public_cheerups[0] | length > 0 %}
     <table class="cheerup-table">
         {% if cheerups[0] | length > 0 %}
         <tr class="cheerup-table-heading">
