@@ -6,6 +6,7 @@ from helpers.sessions import get_session_user_id, get_session_avatar
 
 cheerup_controller = Blueprint("cheerup_controller", __name__, template_folder="../templates/cheerup")
 
+#home/index route@
 @cheerup_controller.route('/home')
 def cheerup_home():
     avatar = get_session_avatar()
@@ -18,6 +19,7 @@ def cheerup_home():
     recent_ten_cheerups = get_ten_most_recent_public_cheerups()
     return render_template('index.html', top_ten_cheerups=top_ten_cheerups, recent_ten_cheerups=recent_ten_cheerups, avatar = avatar, user_id = user_id, status=status, status_message=status_message)
 
+#display all cheerups route
 @cheerup_controller.route('/all-cheerups')
 def all_cheerups():
     all_cheerups = get_all_public_cheer_ups()
@@ -25,6 +27,7 @@ def all_cheerups():
     avatar = get_session_avatar()
     return render_template('all-cheerups.html', cheerups=all_cheerups, user_id = user_id, avatar=avatar)
 
+#create a new cheerup route
 @cheerup_controller.route('/cheerup/create', methods=["POST"])
 def create_cheerup():
     cheerup = request.form.get('new_cheerup')
@@ -60,6 +63,7 @@ def remove_cheerup(id):
 def catch_delete_error(id):
     return redirect('/')
 
+#upvote post route
 @cheerup_controller.route('/upvote/<id>', methods=["POST", "GET"])
 def upvote(id):
     if request.method == "GET":
@@ -70,6 +74,7 @@ def upvote(id):
         update_score(get_cheerup(id)[0]['user_id'])
         return redirect(request.referrer)
 
+#update visibility of post route
 @cheerup_controller.route('/update-visibility/<id>', methods=["POST"])
 def update_visibility(id):
     cheerup = get_cheerup(id)
@@ -86,6 +91,7 @@ def update_visibility(id):
     else:
         return redirect('/')
 
+#edit cheerup route
 @cheerup_controller.route('/edit-cheerup/<id>', methods=["POST"])
 def edit_cheerup(id):
     cheerup_edit = request.form.get(f'edited-cheerup-{id}')

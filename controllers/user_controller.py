@@ -9,12 +9,14 @@ from helpers.user import check_password, validate_email_exists
 
 user_controller = Blueprint("user_controller", __name__, template_folder="../templates/user")
 
+#Sign up route
 @user_controller.route('/signup')
 def signup():
     status_message = request.args.get('status_message')
     status = request.args.get('status')
     return render_template('signup.html', status_message=status_message, status=status)
 
+#Show all users route
 @user_controller.route('/all-cheerupers')
 def show_cheerupers():
     avatar = get_session_avatar()
@@ -22,6 +24,7 @@ def show_cheerupers():
     cheerupers = get_all_users()
     return render_template('all-cheerupers.html', cheerupers=cheerupers, user_id=user_id, avatar=avatar)
 
+#create user on signup route
 @user_controller.route('/create-user', methods=["POST"])
 def create_user():
     first_name = request.form.get('f_name')
@@ -43,6 +46,7 @@ def create_user():
     else:
         return redirect(url_for('user_controller.signup', status_message='This email address is already registered', status='error'))
 
+#show user profile route
 @user_controller.route('/user-profile/<id>')
 def user_profile(id):
     #get currently logged in user
@@ -70,6 +74,7 @@ def user_profile(id):
     else:
         return redirect('/')
 
+#update profile details route
 @user_controller.route('/update-profile/<id>', methods=["GET","POST"])
 def update_profile(id):
     current_user_id = get_session_user_id()

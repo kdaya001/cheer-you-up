@@ -5,13 +5,14 @@ from helpers.sessions import get_session_avatar, get_session_user_id, get_sessio
 
 session_controller = Blueprint("session_controller", __name__, template_folder="../templates/session")
 
+#login screen route
 @session_controller.route('/login')
 def login_page():
     status_message = request.args.get('status_message')
     status = request.args.get('status')
     return render_template('login.html', status_message = status_message, status = status)
 
-# login '/sessions/create
+#login session creation route
 @session_controller.route('/sessions/create', methods=["POST"])
 def create_session():
     username = request.form.get('username').lower()
@@ -33,6 +34,7 @@ def create_session():
     else:
         return redirect('/login')
 
+#lougout route
 @session_controller.route('/sessions/destroy')
 def destroy_session():
     if get_session_user_id():
