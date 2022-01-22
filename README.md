@@ -103,8 +103,7 @@ MVP Relational Database Diagram:
 - [x] Display a cheeruper reptuation (i.e. score)
 - [x] Allow user to update their details (first name, last name, email address, password)
 - [ ] Password strength checker for signup
-- [ ] Email validation
-
+- [ ] Email validation (i.e. send email confirmation)
 
 ## Basic Wireframe Design:
 Note: This design changed (for the home screen specifically) half way though the project due to unappealing UI

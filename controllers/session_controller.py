@@ -1,4 +1,4 @@
-from flask import Blueprint, request, redirect, render_template, session
+from flask import Blueprint, request, redirect, render_template, session, url_for
 from models.user import get_user_by_email
 from helpers.user import check_password
 from helpers.sessions import get_session_avatar, get_session_user_id, get_session_first_name
@@ -30,9 +30,10 @@ def create_session():
         session['user_id'] = user_details['id']
         session['first_name'] = user_details['first_name']
         session['avatar'] = user_details['avatar_url']
-        return redirect('/')
+        return redirect(url_for('cheerup_controller.cheerup_home', status_message="Successfully logged in", status="success"))
     else:
-        return redirect('/login')
+        return redirect(url_for('session_controller.login_page', status_message="Unsuccessful login. Please try again", status="error" ))
+
 
 #lougout route
 @session_controller.route('/sessions/destroy')
