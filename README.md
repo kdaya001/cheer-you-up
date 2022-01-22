@@ -111,7 +111,7 @@ Note: This design changed (for the home screen specifically) half way though the
 
 ![General Design](/static/images/readme/general-design.png)
 
-Initially I planned to use a mix of Grid and Flex layout for the entire design and this was implemented in v1.0 however it didn't work out to be too scalable. Because of this, I re-worked the inner containers to to a simple table design for each container as this ended up being more asthetically pleasing and scalable with Jinja.
+Initially I planned to use a mix of Grid and Flex layout for the entire design and this was implemented in v1.0 however it didn't work out to be too scalable for non Sign-up/Login pages. Because of this, I re-worked the inner containers to to a simple table design for each container as this ended up being more asthetically pleasing and scalable with Jinja.
 
 ### UI after this change:
 ![UI 01](/static/images/readme/ui-01.png)

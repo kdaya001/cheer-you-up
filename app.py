@@ -1,11 +1,8 @@
-from distutils.log import error
-from flask import Flask, render_template, redirect
-import psycopg2
+from flask import Flask, redirect
 import os
 from dotenv import load_dotenv
 
 load_dotenv()
-# DB_URL = os.environ.get("DATABASE_URL", "dbname=project_2")
 
 SECRET_KEY = os.environ.get("SECRET_KEY", "password")
 
