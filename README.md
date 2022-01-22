@@ -104,6 +104,7 @@ MVP Relational Database Diagram:
 - [x] Allow user to update their details (first name, last name, email address, password)
 - [ ] Password strength checker for signup
 - [ ] Email validation (i.e. send email confirmation)
+- [ ] Implementation of Flask error handling
 
 ## Basic Wireframe Design:
 Note: This design changed (for the home screen specifically) half way though the project due to unappealing UI
