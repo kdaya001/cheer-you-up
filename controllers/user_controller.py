@@ -62,11 +62,11 @@ def user_profile(id):
         if current_user == int(id):
             #if the signed in user is trying to access their own profile, redirect to /my-profile route
             easter_egg = get_rand_joke()
-            return render_template('profile.html', cheerups = cheerups, user_id = current_user, avatar = avatar, current_user = True, easter_egg=easter_egg, status=status, status_message=status_message, public_cheerups=public_cheerups)
+            return render_template('profile.html', cheerups = cheerups, user_id = current_user, avatar = avatar, current_active_user = True, easter_egg=easter_egg, status=status, status_message=status_message, public_cheerups=public_cheerups)
 
     #check if the user is trying to access a profile that doesn't exist (e.g. manual URL change)
     if len(cheerups) > 0:
-        return render_template('profile.html', cheerups = cheerups, user_id = current_user, avatar = avatar, current_user = False, public_cheerups=public_cheerups)
+        return render_template('profile.html', cheerups = cheerups, user_id = current_user, avatar = avatar, current_active_user = False, public_cheerups=public_cheerups)
     else:
         return redirect('/')
 

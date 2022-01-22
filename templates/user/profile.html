@@ -34,23 +34,21 @@
         </tr>
     </table>
 </section>
-
-
 {% if cheerups %}
 <section class="all-container">
     <h3 class="cheerup-heading">Cheerups</h3>
-    {% if cheerups[0]['cheerup'] != None and public_cheerups[0] | length > 0 %}
+    {% if (cheerups[0]['cheerup'] != None and public_cheerups[0] | length > 0) or current_active_user %}
     <table class="cheerup-table">
         {% if cheerups[0] | length > 0 %}
         <tr class="cheerup-table-heading">
             <th>User</th>
             <th>Cheerup</th>
-            <th>More information</th>
+            <th>More information </th>
         </tr>
         {% endif %}
 
         {% for cheerup in cheerups %}
-        {% if (cheerup['public_visible']) or (current_user) %}
+        {% if (cheerup['public_visible']) or (current_active_user) %}
         <tr>
             <td>
                 <a href="/user-profile/{{cheerup['userid']}}">
@@ -60,7 +58,7 @@
                     </p>
                 </a>
                 <!-- If the logged in user is viewing their own profile, allow them to delete posts -->
-                {% if current_user %}
+                {% if current_active_user %}
                     <!-- If the post is currently private let the user change to public -->
                     {% if cheerup['public_visible'] %}
                     <p>This post is currently Public</p>
