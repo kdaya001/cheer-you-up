@@ -108,7 +108,6 @@
                 {% if user_id %} 
                     {% if user_id != cheerup['userid'] %} 
                         {% if user_id not in cheerup['voters'] %}
-                        {{ cheerup['voters']}}
                             <form
                                 action="/upvote/{{cheerup['cheerupid']}}"
                                 method="POST"
