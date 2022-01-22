@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
 {% block main_content %} 
+{% if cheerupers %}
 <section class="all-container">
-    {% if cheerupers %}
     <section>
         <h3 class="cheerup-heading">All Cheerupers</h3>
         <table class="cheerup-table">
@@ -26,16 +26,15 @@
             </tr>
             {% endfor %}
         </table>
-    </section>
-    {% else %}
-    <section class="alt-text-container">
-        <h2>
-            There currently aren't any cheeruper! Sign up be the
-            first one!
-        </h2>
-        <p>Help make someones day!</p>
-    </section>
-    {% endif %}
 </section>
+{% else %}
+<section class="alt-text-container all-container">
+    <h2>
+        There currently aren't any cheeruper! Sign up be the
+        first one!
+    </h2>
+    <p>Help make someones day!</p>
+</section>
+{% endif %}
 
 {% endblock main_content %}
