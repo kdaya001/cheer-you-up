@@ -106,7 +106,7 @@ def update_profile(id):
         
             if len(entered_password) > 0:
                 if check_password(original_password, entered_password):
-                    if new_pass_1 == new_pass_2:
+                    if new_pass_1 == new_pass_2 and len(new_pass_1) > 0:
                         hashed_password = bcrypt.hashpw(new_pass_1.encode(), bcrypt.gensalt()).decode()
                         update_password(hashed_password, id)
                     else:
