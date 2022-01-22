@@ -46,7 +46,7 @@ def create_user():
 @user_controller.route('/user-profile/<id>')
 def user_profile(id):
     #get currently logged in user
-    current_user = get_session_user_id()
+    current_active_user = get_session_user_id()
     #if the user is not trying to access their own profile, query the database for the users cheerups
     cheerups = get_all_user_cheerups(id)
     public_cheerups = get_all_user_public_cheerups(id)
@@ -57,16 +57,16 @@ def user_profile(id):
     status = request.args.get('status')
 
     #check if a user is signed in
-    if current_user:
+    if current_active_user:
         #if the user is signed, check if the currently signed in user matches the user they're trying to view
-        if current_user == int(id):
+        if current_active_user == int(id):
             #if the signed in user is trying to access their own profile, redirect to /my-profile route
             easter_egg = get_rand_joke()
-            return render_template('profile.html', cheerups = cheerups, user_id = current_user, avatar = avatar, current_user = True, easter_egg=easter_egg, status=status, status_message=status_message, public_cheerups=public_cheerups)
+            return render_template('profile.html', cheerups = cheerups, user_id = current_active_user, avatar = avatar, current_user = True, easter_egg=easter_egg, status=status, status_message=status_message, public_cheerups=public_cheerups)
 
     #check if the user is trying to access a profile that doesn't exist (e.g. manual URL change)
     if len(cheerups) > 0:
-        return render_template('profile.html', cheerups = cheerups, user_id = current_user, avatar = avatar, current_user = False, public_cheerups=public_cheerups)
+        return render_template('profile.html', cheerups = cheerups, user_id = current_active_user, avatar = avatar, current_user = False, public_cheerups=public_cheerups)
     else:
         return redirect('/')
 

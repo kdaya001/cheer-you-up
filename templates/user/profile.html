@@ -39,7 +39,7 @@
 {% if cheerups %}
 <section class="all-container">
     <h3 class="cheerup-heading">Cheerups</h3>
-    {% if cheerups[0]['cheerup'] != None and public_cheerups[0] | length > 0 %}
+    {% if (cheerups[0]['cheerup'] != None and public_cheerups[0] | length > 0) or (current_user and cheerups[0]['cheerup']) %}
     <table class="cheerup-table">
         {% if cheerups[0] | length > 0 %}
         <tr class="cheerup-table-heading">
@@ -50,7 +50,7 @@
         {% endif %}
 
         {% for cheerup in cheerups %}
-        {% if (cheerup['public_visible']) or (current_user and cheerup['cheerup']) %}
+        {% if (cheerup['public_visible']) or (current_user) %}
         <tr>
             <td>
                 <a href="/user-profile/{{cheerup['userid']}}">
