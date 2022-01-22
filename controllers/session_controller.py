@@ -34,7 +34,6 @@ def create_session():
     else:
         return redirect(url_for('session_controller.login_page', status_message="Unsuccessful login. Please try again", status="error" ))
 
-
 #lougout route
 @session_controller.route('/sessions/destroy')
 def destroy_session():
@@ -47,4 +46,5 @@ def destroy_session():
     if get_session_avatar():
         session.pop('avatar')
 
-    return redirect('/')
+    # return redirect('/')
+    return redirect(url_for('cheerup_controller.cheerup_home', status_message="Successfully logged out", status="success"))
