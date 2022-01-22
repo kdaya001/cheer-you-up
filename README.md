@@ -12,7 +12,7 @@ This is Project 2 for the General Assembly Immersive course. This is the end of 
 
 The world is a depressing place.
 
-Your task is to create an app that will allow people to create and share "cheerups" through the `Cheer you up` web app - happy little quips to brighten other people's' days. Cheerups will be small - limited to 139 characters. Members will be able to promote Cheerups that they like and maybe even boost the reputation of the Cheerupper.
+Your task is to create an app that will allow people to create and share "cheerups" through the `Three Cheers` web app - happy little quips to brighten other people's' days. Cheerups will be small - limited to 139 characters. Members will be able to promote Cheerups that they like and maybe even boost the reputation of the Cheerupper.
 
 ### Basic Logic:
 * Home (main cheerup view of Top 10 most recent and Top 10 most popular)
@@ -103,12 +103,15 @@ MVP Relational Database Diagram:
 - [x] Display a cheeruper reptuation (i.e. score)
 - [x] Allow user to update their details (first name, last name, email address, password)
 - [ ] Password strength checker for signup
+- [ ] Email validation
 
 
-## Wireframe Design:
+## Basic Wireframe Design:
 Note: This design changed (for the home screen specifically) half way though the project due to unappealing UI
 
 ![General Design](/static/images/readme/general-design.png)
+
+Initially I planned to use a mix of Grid and Flex layout for the entire design and this was implemented in v1.0 however it didn't work out to be too scalable. Because of this, I re-worked the inner containers to to a simple table design for each container as this ended up being more asthetically pleasing and scalable with Jinja.
 
 ## 
 
