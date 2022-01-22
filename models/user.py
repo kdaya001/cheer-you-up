@@ -16,11 +16,11 @@ def get_all_users():
     return database.sql_select('SELECT * FROM users ORDER BY score DESC', [])
 
 def get_all_user_cheerups(id):
-    return database.sql_select('SELECT users.id AS userid, users.score, users.first_name, users.avatar_url, cheerups.id AS cheerupid, cheerups.rating, cheerups.cheerup, cheerups.weather, cheerups.city, cheerups.public_visible FROM users LEFT JOIN cheerups ON users.id = cheerups.user_id WHERE users.id = %s ORDER BY rating DESC', [id])
+    return database.sql_select('SELECT users.id AS userid, users.score, users.first_name, users.avatar_url, cheerups.id AS cheerupid, cheerups.rating, cheerups.cheerup, cheerups.weather, cheerups.city, cheerups.public_visible, cheerups.voters FROM users LEFT JOIN cheerups ON users.id = cheerups.user_id WHERE users.id = %s ORDER BY rating DESC', [id])
 
 
 def get_all_user_public_cheerups(id):
-    return database.sql_select('SELECT users.id AS userid, users.score, users.first_name, users.avatar_url, cheerups.id AS cheerupid, cheerups.rating, cheerups.cheerup, cheerups.weather, cheerups.city, cheerups.public_visible FROM users LEFT JOIN cheerups ON users.id = cheerups.user_id WHERE users.id = %s AND cheerups.public_visible = True ORDER BY rating DESC', [id])
+    return database.sql_select('SELECT users.id AS userid, users.score, users.first_name, users.avatar_url, cheerups.id AS cheerupid, cheerups.rating, cheerups.cheerup, cheerups.weather, cheerups.city, cheerups.public_visible, cheerups.voters FROM users LEFT JOIN cheerups ON users.id = cheerups.user_id WHERE users.id = %s AND cheerups.public_visible = True ORDER BY rating DESC', [id])
 
 def get_password(id):
     return database.sql_select('SELECT id, password FROM users WHERE id = %s', [id])
