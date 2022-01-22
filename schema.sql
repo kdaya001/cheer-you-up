@@ -1,29 +1,25 @@
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
-    first_name character varying(30) NOT NULL,
-    second_name character varying(30) NOT NULL, 
+    first_name CHARACTER VARYING(30) NOT NULL,
+    second_name CHARACTER VARYING(30) NOT NULL, 
     password TEXT NOT NULL,
     email TEXT,
     avatar_url Text,
-    score = INTEGER
+    score INTEGER
 );
 
 CREATE TABLE cheerups (
     id SERIAL PRIMARY KEY,
     user_id INTEGER,
-    cheerup character varying(139) NOT NULL, 
-    rating INTEGER
-    weather character varying(3)
+    cheerup CHARACTER VARYING(139) NOT NULL, 
+    rating INTEGER,
+    weather CHARACTER VARYING(3),
+    public_visible BOOLEAN,
+    voters text[],
+    timestamp timestamp DEFAULT CURRENT_TIMESTAMP 
 );
 
 ALTER TABLE cheerups
 ADD CONSTRAINT fk_user
 FOREIGN KEY(user_id)
 REFERENCES users(id);
-
-ALTER TABLE cheerups 
-ADD COLUMN timestamp timestamp default current_timestamp;
-
-alter table cheerups add column public_visible boolean;
-
-alter table cheerups add city VARCHAR(50);

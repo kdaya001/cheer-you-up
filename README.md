@@ -36,13 +36,26 @@ Your task is to create an app that will allow people to create and share "cheeru
 * Posting from a public IP address will invoke a call to the [IP Geolocation API](http://ip-api.com/) to confirm approximate location. A call to [Open Weather Map API](https://api.openweathermap.org/data/2.5) is then invoked to confirm the current weather in that location. This is displayed as additional information to users
 
 ## Technology Used
-* Python
+* Python3
 * HTML
 * CSS
 * Flask
 * PostgreSQL
 * Session storage
+* Heroku
 * Model View Controller Design
+
+## Setup
+```
+* git clone <repo_name>
+* python3 -m venv venv
+* source /venv/bin/activate
+* pip3 install -r requiremetns.txt
+
+* createdb <db_name>
+* psql <db_name> < schema.sql
+
+```
 
 # Project Requirements
 ## Technical Requirements:
@@ -97,6 +110,7 @@ Note: This design changed (for the home screen specifically) half way though the
 
 ![General Design](/static/images/readme/general-design.png)
 
+## 
 
 ## Creative Commons Attribution:
 ### Avatars:
